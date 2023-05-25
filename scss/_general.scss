@@ -1,0 +1,12 @@
+$pop: 'Poppins', sans-serif; // прописуємо стилі шрифтів з гугл фонтс 
+$rob: 'Roboto Condensed', sans-serif;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body{
+    // background: rgb(0, 0, 0);
+    font-family: $pop;
+}
