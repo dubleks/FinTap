@@ -1,5 +1,37 @@
 $pop: 'Poppins', sans-serif; // прописуємо стилі шрифтів з гугл фонтс 
 $rob: 'Roboto Condensed', sans-serif;
+// Cloros
+$bg-color1: #FFFFFF;
+$bg-color2: #F2F3F8;
+$bg-color3: #060512;
+
+
+$txt-color1: #1E2339;
+$txt-color2: #8181b9;
+
+$f20r: 20px;
+$f16r: 16px; // змінна для найчастіше вживаного тексту
+$accent-grad2: linear-gradient(132.97deg, #2AF599 3.44%, #05A6F4 95.12%);
+
+// Діректива рут, для визначення елементів. Створення змінної для визначення пропорцій
+:root {
+    --index: calc(1vw+1vh)
+}
+
+
+$wrap: calc (1920-2*64)px; // ширина всього блоку
+$container: 1200px; // ширина контейнера
+$mc: 0 auto; // вирівнює посередині мерджін авто
+
+@mixin flex ($jc,$ai) { // створили міксін з назвою flex $jc - змінна джастіфай контент, $ai - елайн айтем, це умоавні назви  
+    display: flex;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; // те що не влізло перейде на інщу строку
+    justify-content: $jc; // тізначення які буе=демо писати в дужках будуть підставлятися для параметрів джастіфай контент і елайн айтем
+    align-items: $ai;
+}
+
 *,
 *::before,
 *::after {
@@ -7,6 +39,34 @@ $rob: 'Roboto Condensed', sans-serif;
 }
 
 body{
-    // background: rgb(0, 0, 0);
-    font-family: $pop;
+    margin: 0;
+    padding: 0;
+    background: $bg-color2;
+    font-family: $pop; // main font
+    color: $txt-color1;
+    
+    & p {
+        font-size: $f20r;
+        line-height: 32px;
+        font-weight: 400;
+    }
+
+    & h1 {
+        font-size: 56px;
+    }
+    
+    & h2 {
+        font-size: 48px;
+    }
+
+    & h3 {
+        font-size: 36px;
+    }
+
+    & h4 {
+        font-size: 24px;
+    }
+    & h5 {
+        font-size: 20px;
+    }
 }

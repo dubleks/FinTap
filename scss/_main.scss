@@ -1,0 +1,199 @@
+.main {
+    z-index: 2;
+    @include flex (start, center);
+    background: $bg-color3;
+    position: relative;
+    height: 100vh;
+    overflow: hidden; //обрізає дочірні елементи
+}
+
+nav {
+    @include flex (space-between, center);
+    width: 100%;
+    padding: 16px 24px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+
+    & .menu {
+        @include flex (end, center);
+        gap: 24px;
+
+        & ul{
+            @include flex (center, center);
+            gap: 24px;
+            & a {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 21px;
+                color: $bg-color1;
+            }
+        } 
+    }
+
+
+
+    & .social-conteiner {
+        @include flex (space-between, center);
+        gap: 8px;
+        & a {
+            @include flex (center, center);
+            height: 42px;
+            width: 48px;
+            background: #FFFFFF;
+            box-shadow: 0px 10px 10px rgba(30, 35, 57, 0.04);
+            border-radius: 18px;
+        }
+    }
+
+
+}
+
+.main .discription-conteiner {
+    z-index: 2;
+    @include flex (center, center);
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    & .discription {
+        @include flex (center, start);
+        flex-direction: column;
+        position: absolute;
+        z-index: 2;
+        position: absolute;
+        gap: 32px;
+        padding: 64px;
+        & h1 {
+            padding: 0;
+            color: $bg-color1;
+        }
+        & p {
+            max-width: 720px;
+            opacity: .6;
+            font-weight: 300;
+            color: $bg-color2;
+        }
+        & .btn-conteiner {
+            @include flex (center, center);
+            gap: 16px;
+
+            & .store-btn {
+                @include flex (center, center);
+                position: relative;
+                background: none;
+                border: none;
+                width: 220px;
+                height: 56px;
+                backdrop-filter: blur(30.5px);
+
+                & .store-img {
+                    position: absolute;
+                    z-index: 1;
+                }
+
+                & .btn-body {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background: #FFFFFF;
+                opacity: 0.17;;
+                border-radius: 100px;
+                }
+            } 
+
+            
+
+        }
+    }
+}
+
+.main .left {
+    z-index: 1;
+    height: 100%;
+    width: 50%;
+    background-image: url(../img/noize_200.png);
+    backdrop-filter: blur(30.5px);
+
+    & .print-1 {
+        position: absolute;
+        opacity: .5;
+        z-index: 2;
+        bottom: -25px;
+        translate: (25%);
+    }
+
+    & .print-2 {
+        transform: rotate(180deg);
+        position: absolute;
+        opacity: .5;
+        z-index: 2;
+        right: 0;
+        top: -25px;
+        translate: (-50%)
+    }
+
+    & .circle-1 {
+        display: flex;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        translate: 50% 50%;
+        height: 80%;
+        width: 80%;
+        border-radius: 50%;
+        background: linear-gradient(96.74deg, #FF267E 0%, #38358C 100%);
+        opacity: 0.19;
+        filter: blur(150px);
+    } 
+
+    & .circle-2 {
+        opacity: .5;
+        display: flex;
+        position: absolute;
+        translate: 50% -80%;
+        height: 30%;
+        width: 50%;
+        border-radius: 50%;
+        background: rgba(125, 185, 255, 0.6);
+        filter: blur(150px);
+    } 
+}
+
+.main .right {
+    @include flex (center, center);
+    width: 50%;
+    height: 100%;
+    
+    & .iphones {
+        height: 80%;
+        position: relative;
+        z-index: 1;
+    }
+
+    & .circle-3 {
+        display: flex;
+        position: absolute;
+        height: 80%;
+        width: 80%;
+        border-radius: 50%;
+        background: #38358C;
+        opacity: 0.77;
+        filter: blur(150px);
+    }
+
+}
+
+.circle-blured {
+    display: flex;
+    position:absolute;
+    left: calc(50vw - 55px);
+    top: calc(50vh + 150px);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: linear-gradient(96.74deg, #FF267E 0%, #38358C 100%);
+}
+
+
+
+

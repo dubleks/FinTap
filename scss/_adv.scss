@@ -1,0 +1,74 @@
+.adv {
+    @include flex (center, center);
+    flex-direction: column;
+    margin-top: 12vh;
+    margin-bottom: 12vh;
+    gap: 12vh;
+}
+
+.adv-box {
+    @include flex (space-between, center);
+    gap: 104px;
+
+  & .adv-item {
+    @include flex (start, center);
+    flex-direction: column;
+    width: 350px;
+    & h4 {
+        text-align: center;
+
+    }
+    & p {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 16px;
+    }
+    }  
+}
+.ceo {
+    @include flex (center, center);
+    flex-direction: column;
+    margin-top: 64px;
+    position: relative;
+    & .user{
+        @include flex (center, center);
+        flex-direction: column;
+        gap: 16px;
+        & p {
+            font-size: 16px;
+            transform: translateY(-24px);
+            color: $txt-color2;
+        }
+    }
+    & .user__text {
+        @include flex (center, center);
+        flex-direction: column;
+        z-index: 1;
+        gap: 16px;
+        max-width: 800px;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: -10px 17px 35px rgba(34, 33, 88, 0.11);
+        backdrop-filter: blur(7px);
+        border-radius: 32px;
+        padding: 32px;
+        & p{
+            font-size: 16px;
+        }
+    }
+    & .decor-1 {
+        position: absolute;
+        left: -10%;
+        top: 20%;
+    }
+    & .decor-2 {
+        position: absolute;
+        right: -5%;
+        bottom: -10%;
+    }
+}
+
+
+
+
+ 

@@ -1,0 +1,36 @@
+.fitches__first {
+    @include flex (center, center);
+    margin-top: 12vh;
+    padding-top: 12vh;
+    gap: 12vh;
+
+}
+
+.description {
+    width: 50vw;
+    max-width: 800px;
+    @include flex (center, start);
+    flex-direction: column;
+}
+
+.media-1 {
+    @include flex (center, center);
+    position: relative;
+    max-height: 50vh;
+    max-width: 50vh;
+    & .circle-1 {
+        width: 100%;
+        position: absolute;
+    }
+    & .iphone-2 {
+        height: 80vh;
+        position: relative;
+        z-index: 1;
+    }
+    & .ellipse-2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+}

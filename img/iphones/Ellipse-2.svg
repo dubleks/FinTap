@@ -1,0 +1,37 @@
+<svg width="98" height="128" viewBox="0 0 98 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_533_1054)">
+<circle cx="21.5" cy="100.5" r="15.5" fill="url(#paint0_linear_533_1054)"/>
+</g>
+<g opacity="0.2" filter="url(#filter1_df_533_1054)">
+<circle cx="54" cy="39" r="32" fill="url(#paint1_linear_533_1054)"/>
+</g>
+<defs>
+<filter id="filter0_d_533_1054" x="0" y="79" width="49" height="49" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3" dy="3"/>
+<feGaussianBlur stdDeviation="4.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.113976 0 0 0 0 0.113976 0 0 0 0 0.270833 0 0 0 0.24 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_533_1054"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_533_1054" result="shape"/>
+</filter>
+<filter id="filter1_df_533_1054" x="15" y="0" width="83" height="83" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3" dy="3"/>
+<feGaussianBlur stdDeviation="4.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.113976 0 0 0 0 0.113976 0 0 0 0 0.270833 0 0 0 0.24 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_533_1054"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_533_1054" result="shape"/>
+<feGaussianBlur stdDeviation="3.5" result="effect2_foregroundBlur_533_1054"/>
+</filter>
+<linearGradient id="paint0_linear_533_1054" x1="6" y1="87.2143" x2="35.3896" y2="114.591" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2AF599"/>
+<stop offset="1" stop-color="#05A6F4"/>
+</linearGradient>
+<linearGradient id="paint1_linear_533_1054" x1="22" y1="11.5714" x2="82.6753" y2="68.0909" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2AF599"/>
+<stop offset="1" stop-color="#05A6F4"/>
+</linearGradient>
+</defs>
+</svg>
