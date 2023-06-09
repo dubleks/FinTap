@@ -1,30 +1,51 @@
-.fitches__first {
+.fitches__item {
+    height: 100vh; //пофіксити тут бо дивний ресайз
     @include flex (center, center);
+    flex-wrap: nowrap;
     margin-top: 12vh;
-    padding-top: 12vh;
     gap: 12vh;
-
 }
 
+
 .description {
-    width: 50vw;
     max-width: 800px;
     @include flex (center, start);
     flex-direction: column;
+    gap: 32px;
+    & .main-btn {
+        height: 56px;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $bg-color1;
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: .1em;        
+        background: linear-gradient(94.47deg, #FF267E -27.22%, #5954DD 100%);
+        border-radius: 36px;
+        border: none;
+    }
+    & p {
+        color: $txt-color2;
+    }
 }
 
 .media-1 {
     @include flex (center, center);
     position: relative;
-    max-height: 50vh;
-    max-width: 50vh;
+    height: 80%;
+    max-height: 700px;
     & .circle-1 {
-        width: 100%;
+        width: 80%;
         position: absolute;
     }
     & .iphone-2 {
-        height: 80vh;
+        height: 80%;
+        max-height: 700px;
         position: relative;
+        top: 0;
         z-index: 1;
     }
     & .ellipse-2 {
