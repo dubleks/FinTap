@@ -1,8 +1,13 @@
+.fitches {
+    position: relative;
+    overflow: hidden;
+}
+
 .fitches__item {
-    height: 100vh; //пофіксити тут бо дивний ресайз
+    height: 100vh;
+    max-height: 800px;
     @include flex (center, center);
     flex-wrap: nowrap;
-    margin-top: 12vh;
     gap: 12vh;
 }
 
@@ -30,19 +35,49 @@
     & p {
         color: $txt-color2;
     }
+    & .paragraph {
+        gap: 8px;
+    }
 }
 
 .media-1 {
     @include flex (center, center);
     position: relative;
     height: 80%;
+    width: 30%;
     max-height: 700px;
     & .circle-1 {
-        width: 80%;
+        width: 70%;
+        position: absolute;
+    }
+    & .circle-2 {
+        width: 40%;
+        top: 3%;
+        left: 17%;
+        position: absolute;
+    }
+    & .circle-3 {
+        width: 50%;
+        top: 50;
+        right: 17%;
         position: absolute;
     }
     & .iphone-2 {
-        height: 80%;
+        height: 95%;
+        max-height: 700px;
+        position: relative;
+        top: 0;
+        z-index: 1;
+    }
+    & .iphone-3 {
+        height: 105%;
+        max-height: 700px;
+        position: relative;
+        top: 0;
+        z-index: 1;
+    }
+    & .iphone-4 {
+        height: 100%;
         max-height: 700px;
         position: relative;
         top: 0;
@@ -54,4 +89,19 @@
         right: 0;
         z-index: 1;
     }
+    & .ellipse-3 {
+        position: absolute;
+        top: 0%;
+        left: 12%;
+    }
+}
+
+.white-bg {
+    background-color: #ffffff;
+    height: 20vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+
 }
