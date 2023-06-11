@@ -4,7 +4,6 @@
     background: $bg-color3;
     position: relative;
     height: 100vh;
-    overflow: hidden; //обрізає дочірні елементи
 }
 
 nav {
@@ -73,37 +72,6 @@ nav {
             font-weight: 300;
             color: $bg-color2;
         }
-        & .btn-conteiner {
-            @include flex (center, center);
-            gap: 16px;
-
-            & .store-btn {
-                @include flex (center, center);
-                position: relative;
-                background: none;
-                border: none;
-                width: 220px;
-                height: 56px;
-                backdrop-filter: blur(30.5px);
-
-                & .store-img {
-                    position: absolute;
-                    z-index: 1;
-                }
-
-                & .btn-body {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                background: #FFFFFF;
-                opacity: 0.17;;
-                border-radius: 100px;
-                }
-            } 
-
-            
-
-        }
     }
 }
 
@@ -113,6 +81,8 @@ nav {
     width: 50%;
     background-image: url(../img/noize_200.png);
     backdrop-filter: blur(30.5px);
+    overflow: hidden; //обрізає дочірні елементи
+
 
     & .print-1 {
         position: absolute;
@@ -163,7 +133,6 @@ nav {
     @include flex (center, center);
     width: 50%;
     height: 100%;
-    
     & .iphones {
         height: 80%;
         max-height: 700px;

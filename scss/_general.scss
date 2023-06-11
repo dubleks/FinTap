@@ -20,7 +20,6 @@ $accent-grad2: linear-gradient(132.97deg, #2AF599 3.44%, #05A6F4 95.12%);
 
 
 $wrap: calc (1920-2*64)px; // ширина всього блоку
-$container: 1200px; // ширина контейнера
 $mc: 0 auto; // вирівнює посередині мерджін авто
 
 @mixin flex ($jc,$ai) { // створили міксін з назвою flex $jc - змінна джастіфай контент, $ai - елайн айтем, це умоавні назви  
@@ -44,6 +43,7 @@ body{
     background: $bg-color2;
     font-family: $pop; // main font
     color: $txt-color1;
+    overflow-x: hidden;// обрізає по осі х
     
     & p {
         font-size: $f20r;
@@ -71,4 +71,48 @@ body{
         font-weight: 600;
         color: $bg-color3;
     }
+
 }
+
+button {
+    height: 56px;
+    width: 220px;
+    border-radius: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $bg-color1;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .1em;        
+    background: linear-gradient(94.47deg, #FF267E -27.22%, #5954DD 100%);
+}
+
+.btn-conteiner {
+    @include flex (center, center);
+    gap: 16px;
+    7
+    & .store-btn {
+        @include flex (center, center);
+        position: relative;
+        background: none;
+        backdrop-filter: blur(30.5px);
+    
+        & .store-img {
+            position: absolute;
+            z-index: 1;
+        }
+    
+        & .btn-body {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #FFFFFF;
+        opacity: 0.17;;
+        border-radius: 100px;
+        }
+    }
+}
+
+ 

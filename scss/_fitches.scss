@@ -1,6 +1,5 @@
 .fitches {
     position: relative;
-    overflow: hidden;
 }
 
 .fitches__item {
@@ -17,21 +16,7 @@
     @include flex (center, start);
     flex-direction: column;
     gap: 32px;
-    & .main-btn {
-        height: 56px;
-        width: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: $bg-color1;
-        font-family: 'Poppins';
-        font-weight: 600;
-        font-size: 14px;
-        letter-spacing: .1em;        
-        background: linear-gradient(94.47deg, #FF267E -27.22%, #5954DD 100%);
-        border-radius: 36px;
-        border: none;
-    }
+
     & p {
         color: $txt-color2;
     }
