@@ -3,61 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--дозволяє робити свайт адаптивним-->
 
     <title>FinTap</title>  <!-- назва сторінки у вкладці -->
     <link rel="stylesheet" href="css/style.min.css">  <!-- підключення стилів цсс  -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">    <!-- Підключення бібліотек gsap, атрібут defer дає можлтвість завантажувати скрипти після завантаження контенту  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">    <!-- Підключення бібліотек gsap, атрібут defer дає можлтвість завантажувати скрипти після завантаження контенту  -->
+    
     <script src="libs/gsap/gsap.min.js" defer ></script>
     <script src="libs/gsap/ScrollTrigger.min.js" defer ></script>
     <script src="libs/gsap/ScrollSmoother.min.js" defer ></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        jQuery(function($){
+            var $navbar = $('nav');
+            $(window).scroll(function(event){
+                var $current = $(this).scrollTop();
+                if( $current > 0)
+                {$navbar.addClass('navbar-scroll');}
+                else{$navbar.removeClass('navbar-scroll');}
+            });
+            });
+    </script>
 </head>
 <body>
     <section class="main">
         <nav class="navigation">
-            <a href=""><img src="img/logo.svg" alt="logo"></a>
+            <a class="logo" href=""><img src="img/logo.svg" alt="logo"></a> 
+             <button class="btn-s">
+                <svg class="burger" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_625_979)">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.5C0 1.80964 0.559644 1.25 1.25 1.25H18.75C19.4404 1.25 20 1.80964 20 2.5C20 3.19036 19.4404 3.75 18.75 3.75H1.25C0.559644 3.75 0 3.19036 0 2.5ZM7.5 10C7.5 9.30964 8.05964 8.75 8.75 8.75H18.75C19.4404 8.75 20 9.30964 20 10C20 10.6904 19.4404 11.25 18.75 11.25H8.75C8.05964 11.25 7.5 10.6904 7.5 10ZM0 17.5C0 16.8096 0.559644 16.25 1.25 16.25H18.75C19.4404 16.25 20 16.8096 20 17.5C20 18.1904 19.4404 18.75 18.75 18.75H1.25C0.559644 18.75 0 18.1904 0 17.5Z" fill="white"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_625_979">
+                    <rect width="20" height="20" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+                <svg class="cross" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_682_948)">
+                    <g clip-path="url(#clip1_682_948)">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.488155 0.488155C1.13903 -0.162718 2.1943 -0.162718 2.84518 0.488155L10 7.64298L17.1548 0.488155C17.8057 -0.162718 18.861 -0.162718 19.5118 0.488155C20.1627 1.13903 20.1627 2.1943 19.5118 2.84518L12.357 10L19.5118 17.1548C20.1627 17.8057 20.1627 18.861 19.5118 19.5118C18.861 20.1627 17.8057 20.1627 17.1548 19.5118L10 12.357L2.84518 19.5118C2.1943 20.1627 1.13903 20.1627 0.488155 19.5118C-0.162718 18.861 -0.162718 17.8057 0.488155 17.1548L7.64298 10L0.488155 2.84518C-0.162718 2.1943 -0.162718 1.13903 0.488155 0.488155Z" fill="white"/>
+                    </g>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_682_948">
+                    <rect width="20" height="20" fill="white"/>
+                    </clipPath>
+                    <clipPath id="clip1_682_948">
+                    <rect width="20" height="20" fill="white"/>
+                    </clipPath>
+                    </defs>
+                    </svg>  
+             </button>
+            
             <div class="menu">
                 <ul>
-                    <a href="">Advantages</a>
-                    <a href="">Fitches</a>
-                    <a href="">Opportunities</a>
-                    <a href="">Download</a>
-                    <a href="">Subscribe</a>
+                    <a href="#adv">Advantages</a>
+                    <a href="#fitches">Fitches</a>
+                    <a href="#dowload">Download</a>
+                    <a href="#subscribe">Subscribe</a>
                 </ul>
                 <div class="social-conteiner">
-                    <a href=""><img src="img/telegram-large.svg" alt=""></a>
-                    <a href=""><img src="img/twitter-large.svg" alt=""></a>
+                    <div class="btn-body">
+                        <a href="https://t.me/fintap_app" target="_blank"><svg width="20" height="18" viewBox="0 0 20 18" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.943 2.3604L16.9248 16.1505C16.6969 17.1236 16.1033 17.3658 15.2596 16.9076L10.6606 13.6243L8.44178 15.6923C8.19604 15.9304 7.99102 16.129 7.5174 16.129L7.84815 11.5916L16.3712 4.1301C16.7419 3.81035 16.2905 3.63248 15.7954 3.95292L5.25858 10.3811L0.722389 9.00524C-0.264144 8.70694 -0.282003 8.04945 0.928125 7.59059L18.6707 0.967901C19.4922 0.669607 20.2109 1.14439 19.943 2.3604Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="btn-body">
+                        <a href="https://twitter.com/FintapOfficial" target="_blank"><svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.1711 1.92755C19.4357 2.25328 18.6456 2.47337 17.8149 2.57285C18.672 2.0603 19.3132 1.25361 19.6189 0.303297C18.8137 0.781319 17.9324 1.11779 17.0134 1.2981C16.3954 0.638593 15.5768 0.201464 14.6848 0.0545751C13.7927 -0.0923135 12.8771 0.0592564 12.0801 0.485753C11.2831 0.912249 10.6492 1.58981 10.277 2.41324C9.90472 3.23667 9.81488 4.1599 10.0214 5.03959C8.38984 4.95772 6.79373 4.53387 5.33667 3.79557C3.87961 3.05727 2.59415 2.02101 1.56373 0.754038C1.2114 1.36148 1.00881 2.06576 1.00881 2.81582C1.00841 3.49105 1.17478 4.15593 1.49315 4.75148C1.81152 5.34703 2.27205 5.85483 2.83387 6.22983C2.18231 6.20911 1.54512 6.03314 0.975335 5.71658V5.7694C0.97527 6.71643 1.30303 7.63432 1.903 8.36732C2.50298 9.10032 3.33821 9.60327 4.26698 9.79085C3.66254 9.95435 3.02883 9.97843 2.41372 9.86128C2.67576 10.6761 3.1862 11.3887 3.87357 11.8992C4.56094 12.4097 5.39084 12.6926 6.24707 12.7083C4.79356 13.8488 2.99849 14.4674 1.15062 14.4646C0.823288 14.4647 0.496234 14.4456 0.171143 14.4074C2.04684 15.6128 4.23028 16.2525 6.46023 16.25C14.0089 16.25 18.1356 10.0013 18.1356 4.58181C18.1356 4.40574 18.1312 4.22791 18.1232 4.05184C18.9259 3.47166 19.6188 2.75323 20.1694 1.93019L20.1711 1.92755Z" fill="#F2F3F8"/>
+                            </svg>                            
+                        </a>
+                    </div>
                 </div>
             </div>
-
+            <div class="menu__body">
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+            </div>
         </nav>
         <div class="discription-conteiner">
             <div class="discription">
-                <h1>
+                <h1 class="main-title">
                     One wallet.
                     <br>
-                    50+ digital & fiat currencies.
-                    <br>
-                    Zero worries.
+                    50+ digital & fiat currencies. Zero worries.
                 </h1>
                 <p>
                     The ultimate fiat-friendly, non-custodial wallet that lets you buy digital assets at fixed conversion rates.
                     Runs on the EON blockchain at lightning speed and with near-zero fees.  
                 </p>
                 <div class="btn-conteiner">
-                    <button class="store-btn">
-                        <img class="store-img" src="img/apple.svg" alt="">
-                        <div class="btn-body"></div>
-                    </button>   
-                    <button class="store-btn">
+                    <a target="_blank" href="https://apps.apple.com/ru/app/id1367425342">
+                        <button class="store-btn" href="https://twitter.com/FintapOfficial">
+                            <img class="store-img" src="img/apple.svg" alt="">
+                            <div class="btn-body"></div>
+                        </button> 
+                    </a>
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.exscudo.channels&hl=ru">
+                        <button class="store-btn">
                         <img class="store-img" src="img/google.svg" alt="">
                         <div class="btn-body"></div>
-                    </button>   
+                    </button> 
+                    </a>
                 </div>
             </div>
         </div>
@@ -74,16 +128,14 @@
                 </svg>
                 <div class="circle-1"></div>
                 <div class="circle-2"></div>
-                <div class="new-bg"></div>
-                <div class="left-bg"></div>
         </div>    
         <div class="right">
-            <img class="iphones" src="img/iphone_1st.png" alt="">
+            <img class="iphones" src="img/iphones/iphone_1st.png" alt="">
             <div class="circle-3"></div>
         </div>
         <div class="circle-blured"></div>
     </section>
-    <section class="adv">
+    <section id="adv" class="adv conteiner">
         <div class="adv-box">
             <div class="adv-item">
                 <img class="adv-icon" src="img/bullets/fiat support.svg" alt="">
@@ -138,7 +190,7 @@
             <div></div>
         </div>
     </section>
-    <div class="fitches">
+    <section id="fitches" class="fitches  conteiner">
         <div class="fitches__item">
             <div class="description">
                 <h1>
@@ -150,7 +202,7 @@
                 </p>
                 <button class="main-btn">LEARN MORE</button>
             </div>
-            <div class="media-1">
+            <div class="media">
                 <img class="iphone-2" src="img/iphones/iphone-2.png" alt="iphone-2">
                 <svg class="circle-1" viewBox="0 0 526 526" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M526 263C526 408.251 408.251 526 263 526C117.749 526 0 408.251 0 263C0 117.749 117.749 0 263 0C408.251 0 526 117.749 526 263ZM76.7931 263C76.7931 365.839 160.161 449.207 263 449.207C365.839 449.207 449.207 365.839 449.207 263C449.207 160.161 365.839 76.7931 263 76.7931C160.161 76.7931 76.7931 160.161 76.7931 263Z" fill="url(#paint0_linear_41_1382)"/>
@@ -176,12 +228,12 @@
                     </linearGradient>
                     </defs>
                 </svg>
-                <img class="ellipse-2" src="img/iphones/Ellipse-2.svg" alt="">
+                <img class="ellipse-2" src="img/Ellipse-2.svg" alt="">
             </div>
         </div>
         <div class="fitches__item">
-            <div class="media-1">
-                <img class="iphone-3" src="img/iphones/iphone-3.png" alt="iphone-">
+            <div class="media">
+                <img class="iphone-3" src="img/iphones/iphone-3.png" alt="iphone-2">
                 <svg class="circle-2" viewBox="0 0 270 270" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M270 135C270 209.558 209.558 270 135 270C60.4416 270 0 209.558 0 135C0 60.4416 60.4416 0 135 0C209.558 0 270 60.4416 270 135ZM60.9564 135C60.9564 175.893 94.1069 209.044 135 209.044C175.893 209.044 209.044 175.893 209.044 135C209.044 94.1069 175.893 60.9564 135 60.9564C94.1069 60.9564 60.9564 94.1069 60.9564 135Z" fill="url(#paint0_linear_557_950)"/>
                     <mask id="mask0_557_950" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="270" height="270">
@@ -203,37 +255,35 @@
                     </linearGradient>
                     </defs>
                 </svg>
-                                                     
             </div>
             <div class="description">
                 <h1>
-                    Buy & Sell Digital Assets
+                    MasterCard, SEPA, PayPal, and more
                 </h1>
-                <div class="paragraph">
-                    <h5>
-                        Buying digital currencies has never been easier
-                    </h5>
-                    <p>
-                        The wallet supports 58 currencies: USD, EUR, RUB, BTC, ETH, DOGE, USDT, LTC, XRP, and 50 altcoins. The best part? Nobody can seize or steal your funds. While a simple KYC is needed to work with fiat, your private keys always remain in your full control.
-                    </p>
+                <div class="paragraph-box">
+                    <div class="paragraph">
+                        <h4>
+                            Buying digital currencies has never been easier       
+                        </h4>
+                        <p>
+                            Buy and sell 50+ digital currencies with USD, EUR, and RUB. FinTap has some of the lowest fees in the industry.
+                        </p>
+                    </div>
+                    <div class="paragraph">
+                        <h4>
+                            MasterCard, SEPA, PayPal, and more  
+                        </h4>
+                        <p>
+                            Top up your FinTap in seconds using 10 different fiat systems, including SEPA bank transfers                        </p>
+                    </div>
+                    <div class="paragraph">
+                        <h4>
+                            Zero transfer fees
+                        </h4>
+                        <p>
+                            Send funds for free within the FinTap network thanks to the EON blockchain                        </p>
+                    </div>
                 </div>
-                <div class="paragraph">
-                    <h5>
-                        MasterCard, SEPA, PayPal, and more
-                    </h5>
-                    <p>
-                        Top up your FinTap in seconds using 10 different fiat systems, including SEPA bank transfers
-                    </p>
-                </div>
-                <div class="paragraph">
-                    <h5>
-                        Zero transfer fees
-                    </h5>
-                    <p>
-                        Send funds for free within the FinTap network thanks to the EON blockchain
-                    </p>
-                </div>
-
             </div>
         </div>
         <div class="fitches__item">
@@ -242,10 +292,11 @@
                     Tap, tap, convert
                 </h1>
                 <p>
-                    The wallet supports 58 currencies: USD, EUR, RUB, BTC, ETH, DOGE, USDT, LTC, XRP, and 50 altcoins. The best part? Nobody can seize or steal your funds. While a simple KYC is needed to work with fiat, your private keys always remain in your full control.                </p>
+                    The wallet supports 58 currencies: USD, EUR, RUB, BTC, ETH, DOGE, USDT, LTC, XRP, and 50 altcoins. The best part? Nobody can seize or steal your funds. While a simple KYC is needed to work with fiat, your private keys always remain in your full control.
+                </p>
             </div>
-            <div class="media-1">
-                <img class="iphone-4" src="img/iphones/iphone-4.png" alt="iphone-2">
+            <div class="media">
+                <img class="iphone-4" src="img/iphones/iphone-4.png" alt="iphone-4">
                 <svg class="circle-3" viewBox="0 0 369 369" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M369 184.5C369 286.397 286.397 369 184.5 369C82.6035 369 0 286.397 0 184.5C0 82.6035 82.6035 0 184.5 0C286.397 0 369 82.6035 369 184.5ZM75.59 184.5C75.59 244.649 124.351 293.41 184.5 293.41C244.649 293.41 293.41 244.649 293.41 184.5C293.41 124.351 244.649 75.59 184.5 75.59C124.351 75.59 75.59 124.351 75.59 184.5Z" fill="url(#paint0_linear_560_952)"/>
                     <mask id="mask0_560_952" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="369" height="369">
@@ -267,7 +318,7 @@
                     </linearGradient>
                     </defs>
                     </svg>
-                <svg class="ellipse-3" width="103" height="91" viewBox="0 0 103 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="ellipse-3" viewBox="0 0 103 91" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_557_951)">
                         <path d="M91 70C91 74.9706 86.9706 79 82 79C77.0294 79 73 74.9706 73 70C73 65.0294 77.0294 61 82 61C86.9706 61 91 65.0294 91 70Z" fill="url(#paint0_linear_557_951)"/>
                         <path d="M69 37.5C69 54.897 54.897 69 37.5 69C20.103 69 6 54.897 6 37.5C6 20.103 20.103 6 37.5 6C54.897 6 69 20.103 69 37.5Z" fill="url(#paint1_linear_557_951)"/>
@@ -291,13 +342,219 @@
                         <stop offset="1" stop-color="#05A6F4"/>
                         </linearGradient>
                         </defs>
-                 </svg> 
-                                       
+                </svg>
+                                    
+
             </div>
         </div>
-        <div class="white-bg"></div>
+    </section>
+    <section id="dowload" class="dowload">
+        <div class="left">
+            <img class="iphone-5" src="img/iphones/iphone-5.png" alt="iphone-5">
+            <svg class="print-2" width="379" height="284" viewBox="0 0 379 284" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g style="mix-blend-mode:screen" opacity="0.06">
+                <path d="M199.372 178.142C199.372 178.142 218.043 311.618 127.016 383.131M185.207 183.934C184.981 181.538 184.813 180.21 184.795 180.153C184.528 178.241 184.642 176.296 185.128 174.429C185.615 172.561 186.465 170.808 187.631 169.269C188.796 167.73 190.254 166.435 191.921 165.459C193.588 164.483 195.431 163.844 197.346 163.579C201.212 163.044 205.134 164.065 208.248 166.416C211.362 168.768 213.414 172.258 213.951 176.118C214.165 177.508 218.847 212.145 211.863 256.124C202.497 315.194 176.313 363.097 136.124 394.663C134.606 395.855 132.868 396.737 131.009 397.259C129.149 397.78 127.205 397.931 125.286 397.702C123.368 397.473 121.514 396.87 119.829 395.925C118.144 394.981 116.661 393.715 115.466 392.199C114.271 390.683 113.387 388.947 112.864 387.09C112.341 385.233 112.189 383.292 112.417 381.377C112.645 379.462 113.249 377.61 114.194 375.928C115.139 374.247 116.406 372.767 117.924 371.575C152.487 344.433 174.23 304.307 182.684 252.322C185.348 235.586 186.521 218.645 186.189 201.7M228.753 239.949C228.165 245.874 227.386 252.07 226.38 258.421C216.429 321.217 188.352 372.312 145.204 406.204C142.17 408.589 138.694 410.354 134.976 411.396C131.257 412.439 127.369 412.74 123.533 412.281C119.697 411.823 115.989 410.614 112.621 408.723C109.253 406.833 106.291 404.299 103.904 401.265C101.514 398.234 99.7455 394.763 98.699 391.051C97.6524 387.338 97.3486 383.456 97.8049 379.627C98.2611 375.798 99.4685 372.096 101.358 368.734C103.248 365.371 105.782 362.414 108.817 360.03C140.378 335.234 160.337 298.208 168.147 249.982C171.779 227.536 172.456 204.711 170.161 182.087C169.094 174.367 171.143 166.541 175.856 160.332C180.568 154.123 187.56 150.039 195.291 148.978C203.023 147.916 210.861 149.965 217.083 154.674C223.304 159.382 227.398 166.365 228.464 174.085C230.045 187.474 230.637 200.96 230.237 214.435M156.775 205.003C156.761 197.981 156.378 190.964 155.628 183.982C154.247 173.681 156.557 163.227 162.151 154.467C167.745 145.707 176.261 139.204 186.196 136.11C196.13 133.015 206.841 133.527 216.437 137.556C226.033 141.585 233.895 148.87 238.633 158.125M216.399 340.108C201.857 370.349 180.628 396.896 154.311 417.749C145.112 424.964 133.42 428.237 121.802 426.85C110.183 425.464 99.589 419.53 92.3455 410.352C88.7583 405.805 86.1034 400.598 84.5327 395.027C82.9621 389.457 82.5063 383.632 83.1916 377.886C83.8768 372.141 85.6897 366.587 88.5264 361.542C91.3632 356.498 95.1682 352.061 99.724 348.487C128.295 326.04 146.431 292.107 153.623 247.643C155.346 236.882 156.36 226.02 156.659 215.126M243.07 172.065C246.342 201.586 245.614 231.41 240.908 260.733C237.429 283.356 231.248 305.48 222.497 326.633M73.3953 407.336C67.9826 395.363 66.7377 381.928 69.8588 369.171C72.9798 356.414 80.2873 345.068 90.6173 336.942C116.199 316.843 132.51 286.017 139.154 245.299C142.283 225.647 142.936 205.68 141.097 185.863C139.074 171.022 142.847 155.976 151.634 143.842M159.811 134.642C166.267 128.793 173.945 124.45 182.289 121.927C190.634 119.405 199.437 118.766 208.061 120.057C220.604 121.978 232.198 127.874 241.132 136.875C250.066 145.876 255.866 157.505 257.677 170.045C261.139 201.002 260.399 232.283 255.478 263.038C244.325 333.31 212.51 390.754 163.445 429.297C153.001 437.474 140.1 441.897 126.825 441.851M53.5015 385.569C53.3799 381.84 53.5392 378.107 53.9781 374.401C55.0953 364.819 58.1051 355.554 62.8333 347.143C67.5615 338.732 73.9143 331.341 81.5238 325.399C104.115 307.649 118.604 279.915 124.578 242.939C127.504 224.658 128.131 206.083 126.445 187.646C124.594 173.762 126.764 159.642 132.699 146.956C138.634 134.269 148.085 123.547 159.934 116.058C171.783 108.569 185.535 104.626 199.561 104.696C213.588 104.765 227.303 108.845 239.084 116.452M240.069 358.545C223.736 390.51 200.688 418.578 172.498 440.834C167.545 444.726 162.107 447.958 156.319 450.451M257.839 133.745C265.521 143.739 270.483 155.547 272.243 168.019C275.878 200.418 275.126 233.156 270.006 265.35C265.993 291.423 258.72 316.888 248.358 341.149M105.456 261.494C107.448 254.633 109.007 247.653 110.123 240.596C112.825 223.676 113.422 206.486 111.903 189.417C109.026 166.372 115.376 143.129 129.572 124.741C143.768 106.352 164.662 94.306 187.713 91.22C210.764 88.134 234.108 94.2581 252.669 108.261C271.23 122.263 283.509 143.013 286.835 165.998C288.717 181.704 289.486 197.523 289.138 213.336M40.2544 366.902C44.1206 345.886 55.5619 327.015 72.4171 313.854C84.3905 304.449 93.7815 291.59 100.498 275.438M286.613 252.065C286.028 257.149 285.33 262.352 284.497 267.643C272.169 345.3 236.601 409.186 181.605 452.379M29.8233 348.86C36.2919 330.466 47.8986 314.306 63.2725 302.29C79.8831 289.25 90.7271 267.69 95.4963 238.215C97.4544 225.669 98.2104 212.965 97.7542 200.274M96.8213 187.443C94.4079 160.729 102.546 134.136 119.498 113.338C136.451 92.5408 160.876 79.1852 187.562 76.1213C214.248 73.0574 241.081 80.5279 262.337 96.9388C283.593 113.35 297.587 137.401 301.335 163.962C301.622 165.946 308.02 213.179 299.053 269.946C287.277 344.197 255.083 406.526 205.518 451.401M205.229 60.8161C209.1 61.0042 212.959 61.3875 216.791 61.9645C241.855 65.8294 265.016 77.6313 282.86 95.6304C300.704 113.63 312.287 136.874 315.901 161.936C317.657 176.298 318.525 190.753 318.499 205.22M21.4405 331.03C29.2105 315.325 40.4164 301.566 54.2302 290.768C67.8379 280.074 76.8629 261.581 81.0234 235.897C83.2514 221.638 83.7858 207.166 82.6156 192.78C74.5242 129.263 119.627 70.5244 183.237 61.7699C186.698 61.293 190.164 60.9706 193.633 60.8027M317.972 229.154C317.263 243.589 315.784 257.975 313.541 272.253C302.653 340.936 274.924 399.969 232.585 445.343M14.5524 313.207C22.6917 300.195 33.0361 288.695 45.1234 279.223C55.7549 270.88 62.9396 255.504 66.4993 233.559C68.4982 220.612 68.9969 207.478 67.9854 194.416C59.0463 123.035 109.789 57.0511 181.228 47.2297C215.97 42.4435 251.202 51.6222 279.184 72.7497C307.167 93.8772 325.611 125.226 330.467 159.911C330.769 162.073 337.765 213.481 328.071 274.552C318.425 335.398 296.044 389.043 262.358 432.931M8.97885 295.323C16.7454 284.966 25.8402 275.673 36.0302 267.68C43.5651 261.764 49.0715 249.151 51.9793 231.193C53.7749 219.531 54.2426 207.702 53.3733 195.933C51.307 179.35 52.1331 162.536 55.8151 146.237M60.3772 130.306C78.0125 79.7509 122.789 40.4292 179.199 32.7271C217.8 27.3982 256.949 37.5866 288.046 61.0542C319.143 84.5218 339.644 119.35 345.047 157.887C345.349 160.131 352.626 213.658 342.599 276.864C334.644 327.064 318.304 372.6 294.361 412.166M78.5952 70.9608C93.2193 54.4136 111.101 41.052 131.126 31.7082C151.151 22.3644 172.891 17.2387 194.99 16.6504C217.09 16.062 239.077 20.0237 259.581 28.2885C280.085 36.5533 298.666 48.9442 314.168 64.6894M4.60587 277.32C11.3635 269.562 18.8418 262.461 26.9407 256.111C30.3164 253.454 34.8624 244.891 37.4613 228.815C39.0462 218.42 39.4759 207.882 38.7425 197.392C33.9201 157.371 44.3346 117.008 67.9213 84.3067M324.189 75.7604C343.179 98.6849 355.44 126.41 359.613 155.861C359.928 158.202 367.488 213.835 357.129 279.163C351.771 313.924 341.873 347.831 327.689 380.02M1.3417 259.266C6.37473 254.199 11.7057 249.436 17.3062 245.003C18.4079 243.457 21.1035 237.807 22.9351 226.489C24.0587 219.107 24.5177 211.639 24.3066 204.175M356.225 97.704C365.355 115.263 371.426 134.245 374.179 153.835C374.509 156.26 382.369 213.974 371.66 281.462C368.589 300.962 364.203 320.232 358.532 339.14M23.1578 188.338C17.8268 97.7738 83.9954 16.1293 175.177 3.57812C208.196 -0.971921 241.835 3.92701 272.186 17.7057C302.536 31.4843 328.351 53.577 346.632 81.4167" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                </g>
+            </svg>         
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+            <div class="new-bg"></div>
+            <div class="left-bg"></div>
+        </div>    
+        <div class="right">        
+            <div class="discription">
+                <h1>
+                    Download FinTap Wallet NOW
+                </h1>
+                <ul class="advantages-list">
+                    <li>
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.90711 12.8929C8.51658 12.5024 7.88342 12.5024 7.49289 12.8929C7.10237 13.2834 7.10237 13.9166 7.49289 14.3071L8.90711 12.8929ZM11.8 17.2L11.0929 17.9071C11.2916 18.1058 11.5646 18.2117 11.8453 18.199C12.126 18.1862 12.3884 18.056 12.5682 17.8402L11.8 17.2ZM18.5682 10.6402C18.9218 10.2159 18.8645 9.58534 18.4402 9.23178C18.0159 8.87821 17.3853 8.93554 17.0318 9.35982L18.5682 10.6402ZM7.49289 14.3071L11.0929 17.9071L12.5071 16.4929L8.90711 12.8929L7.49289 14.3071ZM12.5682 17.8402L18.5682 10.6402L17.0318 9.35982L11.0318 16.5598L12.5682 17.8402ZM24 13C24 19.0751 19.0751 24 13 24V26C20.1797 26 26 20.1797 26 13H24ZM13 24C6.92487 24 2 19.0751 2 13H0C0 20.1797 5.8203 26 13 26V24ZM2 13C2 6.92487 6.92487 2 13 2V0C5.8203 0 0 5.8203 0 13H2ZM13 2C19.0751 2 24 6.92487 24 13H26C26 5.8203 20.1797 0 13 0V2Z" fill="#F2F3F8"/>
+                        </svg> 
+                        <p>                               
+                            Digital & fiat currency in a single interface
+                        </p>
+                    </li>
+                    <li>
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.90711 12.8929C8.51658 12.5024 7.88342 12.5024 7.49289 12.8929C7.10237 13.2834 7.10237 13.9166 7.49289 14.3071L8.90711 12.8929ZM11.8 17.2L11.0929 17.9071C11.2916 18.1058 11.5646 18.2117 11.8453 18.199C12.126 18.1862 12.3884 18.056 12.5682 17.8402L11.8 17.2ZM18.5682 10.6402C18.9218 10.2159 18.8645 9.58534 18.4402 9.23178C18.0159 8.87821 17.3853 8.93554 17.0318 9.35982L18.5682 10.6402ZM7.49289 14.3071L11.0929 17.9071L12.5071 16.4929L8.90711 12.8929L7.49289 14.3071ZM12.5682 17.8402L18.5682 10.6402L17.0318 9.35982L11.0318 16.5598L12.5682 17.8402ZM24 13C24 19.0751 19.0751 24 13 24V26C20.1797 26 26 20.1797 26 13H24ZM13 24C6.92487 24 2 19.0751 2 13H0C0 20.1797 5.8203 26 13 26V24ZM2 13C2 6.92487 6.92487 2 13 2V0C5.8203 0 0 5.8203 0 13H2ZM13 2C19.0751 2 24 6.92487 24 13H26C26 5.8203 20.1797 0 13 0V2Z" fill="#F2F3F8"/>
+                        </svg> 
+                        <p>                               
+                            Swap, buy, sell & store digital assets                        </p>
+                    </li>
+                    <li>
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.90711 12.8929C8.51658 12.5024 7.88342 12.5024 7.49289 12.8929C7.10237 13.2834 7.10237 13.9166 7.49289 14.3071L8.90711 12.8929ZM11.8 17.2L11.0929 17.9071C11.2916 18.1058 11.5646 18.2117 11.8453 18.199C12.126 18.1862 12.3884 18.056 12.5682 17.8402L11.8 17.2ZM18.5682 10.6402C18.9218 10.2159 18.8645 9.58534 18.4402 9.23178C18.0159 8.87821 17.3853 8.93554 17.0318 9.35982L18.5682 10.6402ZM7.49289 14.3071L11.0929 17.9071L12.5071 16.4929L8.90711 12.8929L7.49289 14.3071ZM12.5682 17.8402L18.5682 10.6402L17.0318 9.35982L11.0318 16.5598L12.5682 17.8402ZM24 13C24 19.0751 19.0751 24 13 24V26C20.1797 26 26 20.1797 26 13H24ZM13 24C6.92487 24 2 19.0751 2 13H0C0 20.1797 5.8203 26 13 26V24ZM2 13C2 6.92487 6.92487 2 13 2V0C5.8203 0 0 5.8203 0 13H2ZM13 2C19.0751 2 24 6.92487 24 13H26C26 5.8203 20.1797 0 13 0V2Z" fill="#F2F3F8"/>
+                        </svg> 
+                        <p>                               
+                            Low fees, high security                        </p>
+                    </li>
+                    <li>
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.90711 12.8929C8.51658 12.5024 7.88342 12.5024 7.49289 12.8929C7.10237 13.2834 7.10237 13.9166 7.49289 14.3071L8.90711 12.8929ZM11.8 17.2L11.0929 17.9071C11.2916 18.1058 11.5646 18.2117 11.8453 18.199C12.126 18.1862 12.3884 18.056 12.5682 17.8402L11.8 17.2ZM18.5682 10.6402C18.9218 10.2159 18.8645 9.58534 18.4402 9.23178C18.0159 8.87821 17.3853 8.93554 17.0318 9.35982L18.5682 10.6402ZM7.49289 14.3071L11.0929 17.9071L12.5071 16.4929L8.90711 12.8929L7.49289 14.3071ZM12.5682 17.8402L18.5682 10.6402L17.0318 9.35982L11.0318 16.5598L12.5682 17.8402ZM24 13C24 19.0751 19.0751 24 13 24V26C20.1797 26 26 20.1797 26 13H24ZM13 24C6.92487 24 2 19.0751 2 13H0C0 20.1797 5.8203 26 13 26V24ZM2 13C2 6.92487 6.92487 2 13 2V0C5.8203 0 0 5.8203 0 13H2ZM13 2C19.0751 2 24 6.92487 24 13H26C26 5.8203 20.1797 0 13 0V2Z" fill="#F2F3F8"/>
+                        </svg> 
+                        <p>                               
+                            P2P chat with built-in payments                        </p>
+                    </li>
+                    <li>
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.90711 12.8929C8.51658 12.5024 7.88342 12.5024 7.49289 12.8929C7.10237 13.2834 7.10237 13.9166 7.49289 14.3071L8.90711 12.8929ZM11.8 17.2L11.0929 17.9071C11.2916 18.1058 11.5646 18.2117 11.8453 18.199C12.126 18.1862 12.3884 18.056 12.5682 17.8402L11.8 17.2ZM18.5682 10.6402C18.9218 10.2159 18.8645 9.58534 18.4402 9.23178C18.0159 8.87821 17.3853 8.93554 17.0318 9.35982L18.5682 10.6402ZM7.49289 14.3071L11.0929 17.9071L12.5071 16.4929L8.90711 12.8929L7.49289 14.3071ZM12.5682 17.8402L18.5682 10.6402L17.0318 9.35982L11.0318 16.5598L12.5682 17.8402ZM24 13C24 19.0751 19.0751 24 13 24V26C20.1797 26 26 20.1797 26 13H24ZM13 24C6.92487 24 2 19.0751 2 13H0C0 20.1797 5.8203 26 13 26V24ZM2 13C2 6.92487 6.92487 2 13 2V0C5.8203 0 0 5.8203 0 13H2ZM13 2C19.0751 2 24 6.92487 24 13H26C26 5.8203 20.1797 0 13 0V2Z" fill="#F2F3F8"/>
+                        </svg> 
+                        <p>                               
+                            Runs on EON blockchain                        </p>
+                    </li>
+                </ul>
+                <div class="btn-conteiner">
+                    <a target="_blank" href="https://apps.apple.com/ru/app/id1367425342">
+                        <button class="store-btn" href="https://twitter.com/FintapOfficial">
+                            <img class="store-img" src="img/apple.svg" alt="">
+                            <div class="btn-body"></div>
+                        </button> 
+                    </a>
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.exscudo.channels&hl=ru">
+                        <button class="store-btn">
+                        <img class="store-img" src="img/google.svg" alt="">
+                        <div class="btn-body"></div>
+                    </button> 
+                    </a>
+                </div>
+            </div>
+            <div class="circle-3">
+            </div>
+        </div>
+    </section>
+    <section id="subscribe" class="subscribe">
+        <div class="description">
+            <h1>
+                Dive into digital assets with FinTap 
+            </h1>
+            <p>
+                Are you new to digital currencies and looking for a safe and easy way to invest, deposit, and withdraw money?            
+            </p>
+        </div>
+        <div class="form-conteiner">
+            <form class="sub-form" action="">
+                <h4>Download the free guide and learn to keep your money safe</h4>
+                <div class="input-labled">
+                    <label for="name">Name</label>
+                    <input id="name" placeholder="Enter your name" type="text" autocomplete="on" required>
+                </div>
+                <div class="input-labled">
+                    <label for="email">E-mail</label>
+                    <input id="email" placeholder="user@gmail.com" type="email" autocomplete="on" required>
+                </div>
+                <button class="main-btn">LEARN MORE</button>
+            </form>
+            <svg class="blured-1" width="173" height="173" viewBox="0 0 173 173" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.44" filter="url(#filter0_f_26_1120)">
+                <circle cx="86.5" cy="86.5" r="76.5" fill="url(#paint0_linear_26_1120)"/>
+                </g>
+                <defs>
+                <filter id="filter0_f_26_1120" x="0" y="0" width="173" height="173" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="5" result="effect1_foregroundBlur_26_1120"/>
+                </filter>
+                <linearGradient id="paint0_linear_26_1120" x1="10" y1="20.9286" x2="155.052" y2="156.045" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2AF599"/>
+                <stop offset="1" stop-color="#05A6F4"/>
+                </linearGradient>
+                </defs>
+            </svg>
+            <svg class="blured-2" width="118" height="118" viewBox="0 0 118 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.59" filter="url(#filter0_f_26_1121)">
+                <circle cx="59" cy="59" r="52" fill="url(#paint0_linear_26_1121)"/>
+                </g>
+                <defs>
+                <filter id="filter0_f_26_1121" x="0" y="0" width="118" height="118" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="3.5" result="effect1_foregroundBlur_26_1121"/>
+                </filter>
+                <linearGradient id="paint0_linear_26_1121" x1="-22.039" y1="-11.9091" x2="119.74" y2="-0.828949" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF267E"/>
+                <stop offset="1" stop-color="#5954DD"/>
+                </linearGradient>
+                </defs>
+            </svg>      
+        </div>
 
-    </div>
+    </section>
+    <footer>
+        <div class="logos-box">
+            <a href=""><img src="img/logo.svg" alt="logo"></a>
+            <svg class="excudo-logo" width="123" height="37" viewBox="0 0 123 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.8686 0C20.8127 0.98226 21.7606 0.986613 22.2636 1.38518C23.2379 2.1254 24.251 2.81173 25.2985 3.44117C26.1776 3.9922 27.1082 4.46046 27.9916 5.00713C29.0233 5.64527 30.012 6.35965 31.0502 6.98472C32.0883 7.6098 33.1995 8.0737 34.1882 8.75322C35.4478 9.61134 36.6342 10.5849 37.8121 11.5584C38.0098 11.7196 38.085 12.1225 38.0936 12.4187C38.128 13.4271 38.0764 14.4377 38.1151 15.4483C38.1538 16.5068 37.5112 17.0316 36.7094 17.489C36.2172 17.77 35.7551 18.1076 35.1684 18.4887C35.6778 18.8502 36.0947 19.2357 36.5826 19.4753C37.5907 19.9741 38.2183 20.6449 38.1194 21.8711C38.0453 22.6257 38.0453 23.3859 38.1194 24.1405C38.2806 25.5518 37.2747 26.1682 36.3784 26.815C35.0394 27.7842 33.6531 28.6968 32.2452 29.5636C31.2458 30.1778 30.1625 30.6526 29.148 31.2363C28.2882 31.7351 27.4693 32.3253 26.6268 32.8502C25.5521 33.5275 24.4774 34.1831 23.4027 34.8713C22.515 35.4485 21.6188 36.0213 20.7805 36.6681C20.1593 37.1495 17.8939 37.0863 17.2341 36.6137C16.3055 35.9603 15.2867 35.4202 14.3131 34.8169C13.3745 34.2361 12.4431 33.6451 11.5189 33.044C10.6033 32.4494 9.70053 31.8331 8.7849 31.2363C7.75966 30.5677 6.73656 29.8969 5.69627 29.2522C4.79138 28.6903 3.86286 28.1632 2.94938 27.6165C2.0359 27.0699 1.15466 26.5711 0.299211 25.9874C0.125113 25.8698 0.0842748 25.48 0.0842748 25.2121C0.0627812 23.8421 -0.0188946 22.4613 0.122963 21.1044C0.178847 20.5839 0.686097 19.8761 1.15251 19.6996C1.67051 19.5036 2.42278 19.6997 2.99237 19.9371C3.61568 20.1919 4.16377 20.6558 4.69896 21.0892C4.80858 21.1785 4.80428 21.6598 4.69896 21.7426C4.16162 22.1172 3.57484 22.4156 2.80322 22.8555C3.38785 23.461 3.86501 24.1318 4.49692 24.5739C5.67262 25.3928 6.9214 26.1094 8.17019 26.8107C9.24487 27.4183 10.3819 27.9389 11.4781 28.5204C11.5877 28.5825 11.6756 28.6777 11.7295 28.7926C12.6731 28.3265 13.4813 27.8322 14.3518 27.5185C15.5253 27.096 16.2024 28.2547 17.1115 28.6467C17.7048 28.9015 17.0449 30.1713 16.0927 30.4893C15.8628 30.5655 15.6242 30.6199 15.276 30.7071C16.5398 32.4146 18.1669 33.0658 20.0755 32.6389C21.0341 32.4211 22.0099 31.8853 22.4871 30.8247C20.1529 29.287 17.9176 27.7755 15.6435 26.3272C14.6591 25.7021 13.5866 25.223 12.5785 24.6327C11.7467 24.1449 10.9536 23.5938 10.1412 23.0711C9.07937 22.3851 8.01113 21.7121 6.96009 21.0108C6.03372 20.3922 5.14603 19.7171 4.20676 19.1203C3.62991 18.7437 3.01624 18.4284 2.3755 18.1794C0.847299 17.611 0.0713787 16.5765 0.0692293 14.9757C0.0692293 14.2918 0.1681 13.5883 0.049885 12.924C-0.190844 11.5976 0.464712 10.8528 1.47706 10.2212C2.48941 9.58956 3.49962 8.84687 4.54421 8.19349C5.50927 7.59672 6.53882 7.1045 7.50388 6.50339C8.46895 5.90227 9.35234 5.22057 10.2981 4.60638C10.8247 4.26227 11.4028 4.00091 11.9423 3.6764C13.2857 2.86402 14.6183 2.04075 15.9573 1.21966C16.2599 1.06387 16.5477 0.880135 16.8171 0.670809C16.984 0.468851 17.1202 0.242753 17.2212 0H20.8686ZM2.62267 14.074C3.2245 14.4943 3.48242 14.7274 3.76829 14.8624C4.83007 15.3219 5.68767 16.5808 7.03317 15.9514C8.08206 15.4635 9.04068 14.7753 10.0229 14.1524C11.3448 13.3139 12.6022 12.3686 13.9885 11.6499C14.4399 11.4147 15.19 11.6935 15.7811 11.8372C16.1125 11.9507 16.413 12.1418 16.658 12.3948C16.9259 12.6352 17.1532 12.9184 17.3308 13.2333C17.3518 13.3299 17.3483 13.4304 17.3204 13.5253C17.2926 13.6201 17.2414 13.7063 17.1717 13.7756C16.1529 14.5096 15.1255 15.2414 14.0659 15.9144C12.8343 16.6941 11.5597 17.4041 10.326 18.1794C10.2035 18.2557 10.1347 18.7087 10.1992 18.7544C11.2739 19.5167 12.37 20.2594 13.4834 20.9694C14.5001 21.6228 15.5167 22.2762 16.5849 22.8359C17.5285 23.3281 18.3044 24.3714 19.5726 23.938C20.0024 23.792 20.3506 23.4588 20.7354 23.2127C21.7456 22.5593 22.7536 21.9059 23.7681 21.2721C24.6472 20.7146 25.4876 20.083 26.4269 19.643C27.8111 18.9896 28.7439 19.9501 29.7025 20.7647C30.2205 21.2003 30.6654 21.4573 29.6402 21.8645C28.9954 22.1215 28.4881 22.7357 27.8777 23.106C26.0851 24.2167 24.2711 25.2839 22.4011 26.4208C22.9385 26.7802 23.3275 27.035 23.7122 27.292C24.5118 27.8409 25.3028 28.4071 26.1174 28.9342C26.2206 29.0017 26.4634 28.9342 26.601 28.8493C26.8761 28.6881 27.1147 28.4616 27.3877 28.2917C28.3226 27.7145 29.2812 27.1766 30.199 26.5777C31.1168 25.9787 31.8798 25.1554 32.847 24.7874C33.9432 24.3692 34.5665 23.6352 35.1684 22.788C33.5413 21.8036 31.9722 20.8866 30.4398 19.9153C28.7826 18.8633 27.1792 17.7373 25.5156 16.6875C23.852 15.6378 22.1217 14.6969 20.4517 13.6558C18.9944 12.7476 17.578 11.7697 16.1529 10.8245C14.8268 9.93803 13.5135 9.03418 12.1809 8.16082C12.0929 8.11731 11.9962 8.0947 11.8983 8.0947C11.8003 8.0947 11.7037 8.11731 11.6156 8.16082C9.8166 9.30425 8.03478 10.476 6.24221 11.6325C5.85317 11.883 5.419 12.0681 5.03856 12.336C4.25619 12.8717 3.50391 13.4402 2.62267 14.074ZM35.1727 14.037C32.5719 11.565 29.1544 10.219 26.3087 8.0737L22.4398 10.4891C23.7122 11.3602 24.9051 12.1966 26.1281 12.9894C27.579 13.9324 28.9997 14.9495 30.5472 15.6966C31.2071 16.0145 32.2237 15.9144 32.9481 15.6574C33.7261 15.3808 34.343 14.6773 35.1727 14.0457V14.037ZM15.7789 6.14402C17.9648 8.69659 20.1701 8.43088 22.3431 6.14402C22.0529 4.90477 20.7354 4.24484 18.4613 4.30583C17.1137 4.35156 15.9509 5.19879 15.7789 6.14402Z" fill="white"/>
+                <path d="M123 24.036C122.531 24.3344 122.069 24.6458 121.592 24.9311C121.315 25.0966 121.014 25.3362 120.717 25.3427C118.865 25.3819 117.008 25.4016 115.155 25.358C114.11 25.334 112.924 24.1144 112.913 23.0559C112.882 20.0314 112.882 17.0055 112.913 13.9782C112.924 12.8739 114.127 11.7065 115.239 11.6695C116.7 11.6216 118.164 11.6412 119.625 11.6107C120.81 11.5889 121.854 11.8285 122.497 12.9698C122.542 13.0482 122.826 12.9872 123 12.9915V24.036ZM115.067 23.2214C116.765 23.2214 118.224 23.2759 119.677 23.1975C120.393 23.1583 120.868 22.6573 120.87 21.8645C120.87 19.6692 120.896 17.4716 120.855 15.2784C120.838 14.3724 120.333 13.8301 119.376 13.8301C118.42 13.8301 117.521 13.8301 116.595 13.8301C115.357 13.8431 115.077 14.1154 115.069 15.3546C115.058 17.0099 115.069 18.6651 115.069 20.3225L115.067 23.2214Z" fill="white"/>
+                <path d="M100.799 25.3406V11.6064C101.554 11.6064 102.287 11.6064 103.017 11.6064C104.625 11.6064 106.241 11.5911 107.838 11.639C109.67 11.6935 110.759 12.7019 110.794 14.5161C110.847 17.4694 110.897 20.4314 110.688 23.3695C110.639 24.0665 109.592 25.199 108.932 25.2513C106.254 25.4669 103.546 25.3406 100.799 25.3406ZM102.918 23.204C104.582 23.204 106.143 23.2236 107.709 23.204C108.438 23.1909 108.647 22.6856 108.644 22.0214C108.644 19.7541 108.621 17.4847 108.644 15.2174C108.652 14.9106 108.55 14.6113 108.359 14.3736C108.167 14.1359 107.898 13.9755 107.6 13.9215C106.061 13.7756 104.5 13.8649 102.91 13.8649L102.918 23.204Z" fill="white"/>
+                <path d="M88.5973 11.7261C90.4049 11.4103 90.6413 11.6042 90.6435 13.4032C90.6435 16.1104 90.6435 18.8176 90.6435 21.5226C90.6435 22.6769 91.1529 23.2105 92.2856 23.2258C93.6031 23.2432 94.9228 23.2258 96.3522 23.2258C96.4038 22.6072 96.4811 22.0823 96.4833 21.5574C96.4962 18.8502 96.4425 16.143 96.5263 13.4402C96.5907 12.7989 96.8824 12.2031 97.3473 11.7632C97.6053 11.5192 98.3124 11.6434 98.7638 11.7806C98.9594 11.8394 99.1249 12.3469 99.127 12.6518C99.1528 15.8643 99.1872 19.0768 99.1098 22.2871C99.0926 23.0058 98.6541 23.7158 98.3747 24.5304C96.0104 26.0876 93.2743 25.2774 90.637 25.3319C89.8396 25.3493 88.5113 23.9401 88.507 23.1539C88.4855 19.4383 88.4941 15.7205 88.507 12.0049C88.5233 11.908 88.5537 11.814 88.5973 11.7261Z" fill="white"/>
+                <path d="M65.5733 25.4212C65.4937 23.8356 66.0332 23.2432 67.3357 23.2432C68.8403 23.2432 70.3449 23.1691 71.8344 23.2693C72.6726 23.3238 72.9821 22.7314 73.2572 22.2566C73.4163 21.9822 73.0552 21.4072 72.9477 20.9651C72.6425 19.7236 71.6732 19.7214 70.6608 19.5123C69.2334 19.1943 67.8451 18.7173 66.5211 18.0901C66.0655 17.8832 65.6614 17.1645 65.5733 16.62C65.4185 15.7096 65.5023 14.7535 65.541 13.817C65.569 13.181 66.936 11.7305 67.6195 11.7153C69.9644 11.6673 72.3115 11.6978 74.635 11.6978C74.9595 13.2376 74.5125 13.8279 73.096 13.8344C71.7742 13.8344 70.4523 13.817 69.1326 13.8497C68.1052 13.8736 67.2218 15.2697 67.843 15.9514C68.4192 16.5772 69.1348 17.0544 69.93 17.3431C71.1466 17.7678 72.5093 17.7787 73.6828 18.2949C74.4567 18.6921 75.0518 19.3738 75.3464 20.2006C76.0299 22.3263 75.3765 25.5344 72.1331 25.4429C69.9687 25.3711 67.7979 25.4212 65.5733 25.4212Z" fill="white"/>
+                <path d="M43.2887 11.7131H51.7593L50.8243 13.8279C49.6099 13.8279 48.2601 13.8279 46.9103 13.8279C45.941 13.8279 45.395 14.3854 45.3714 15.3524C45.3349 16.8356 45.7174 17.3997 46.8373 17.4389C47.7658 17.4694 48.6965 17.4607 49.6314 17.4585C50.6481 17.4585 50.3235 18.247 50.4009 18.7849C50.4847 19.3621 50.2698 19.6561 49.6336 19.6278C48.7437 19.5886 47.8475 19.6125 46.9555 19.6278C45.7174 19.6387 45.3757 20.0634 45.3778 21.5879C45.38 23.1125 45.481 23.2236 46.9146 23.2345C47.9141 23.2345 48.9157 23.2345 49.9237 23.2345C51.2714 23.2345 51.813 23.8269 51.7765 25.3297H43.2887V11.7131Z" fill="white"/>
+                <path d="M53.6916 11.8416C55.5121 11.3537 56.0795 11.6238 56.8576 13.242C57.3541 14.2765 57.8184 15.3241 58.3235 16.3543C58.4248 16.5075 58.5716 16.6242 58.7426 16.6875C59.1009 16.3952 59.4202 16.057 59.6926 15.6813C60.4019 14.5531 61.1112 13.4184 61.7216 12.2358C62.3084 11.0989 63.1961 11.8851 63.9054 11.6107L64.1676 11.9004C63.9204 12.2968 63.656 12.6866 63.4282 13.0939C62.4803 14.7862 61.5346 16.4784 60.6104 18.1838C60.5664 18.2781 60.5436 18.3811 60.5436 18.4854C60.5436 18.5898 60.5664 18.6928 60.6104 18.7871C61.4701 20.1135 62.3772 21.4006 63.2025 22.7379C63.6539 23.4697 63.9634 24.2886 64.3395 25.0749C62.8522 25.9286 61.9 25.4059 61.195 23.9685C60.5975 22.751 59.7872 21.6359 59.0285 20.5055C58.9812 20.4358 58.4395 20.5382 58.3407 20.695C57.5927 21.895 56.8705 23.1103 56.1913 24.3561C55.6239 25.4059 54.7383 25.5736 53.7152 25.3798C53.5562 25.3493 53.2982 24.9224 53.3455 24.844C54.173 23.5002 55.065 22.1956 55.8904 20.8496C56.2833 20.2178 56.6103 19.5463 56.8662 18.8459C57.2767 17.7025 56.1462 17.0273 55.9011 16.0516C55.7055 15.2653 55.0801 14.5923 54.6803 13.8518C54.3342 13.2028 54.0333 12.5494 53.6916 11.8416Z" fill="white"/>
+                <path d="M86.2824 25.3427C83.9009 25.3427 81.5839 25.395 79.2712 25.3188C78.2889 25.2883 77.0896 23.8334 77.0767 22.7662C77.0466 19.9523 77.0516 17.1384 77.0917 14.3244C77.1111 13.1179 78.4329 11.7261 79.6839 11.6782C81.8569 11.5998 84.032 11.6564 86.2953 11.6564V13.8344C84.593 13.8344 82.9595 13.8344 81.326 13.8344C79.7849 13.8344 79.2647 14.3615 79.2518 15.9209C79.2389 17.6633 79.2518 19.386 79.2518 21.1175C79.2518 22.8076 79.6817 23.2258 81.3303 23.2345C82.4372 23.2345 83.5463 23.2345 84.6532 23.2345C86.4565 23.2323 86.5403 23.3368 86.2824 25.3427Z" fill="white"/>
+            </svg>
+        </div>
+        <div class="center">
+            <div class="btn-conteiner">
+                <a target="_blank" href="https://apps.apple.com/ru/app/id1367425342">
+                    <button class="store-btn" href="https://twitter.com/FintapOfficial">
+                        <img class="store-img" src="img/apple.svg" alt="">
+                        <div class="btn-body"></div>
+                    </button> 
+                </a>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.exscudo.channels&hl=ru">
+                    <button class="store-btn">
+                    <img class="store-img" src="img/google.svg" alt="">
+                    <div class="btn-body"></div>
+                </button> 
+                </a>
+            </div>
+            <p class="copyright">
+                © Fintap 2022. All rights Reserved
+            </p>
+        </div>
+        <div class="right">
+            <p class="copyright">
+                Follow Us
+            </p>
+            <ul class="social-box" >  
+                <li>
+                    <a class="social-icn" target="_blank" href="https://www.youtube.com/@exscudoofficial6848"> <!--target="_blank" відкриває вкладку в новому вікні-->
+                        <svg width="21" height="16" viewBox="0 0 21 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.5617 2.93984C20.4422 2.49462 20.2078 2.0886 19.882 1.76243C19.5563 1.43625 19.1505 1.20136 18.7055 1.08125C17.0672 0.640625 10.5 0.640625 10.5 0.640625C10.5 0.640625 3.93281 0.640625 2.29453 1.07891C1.84927 1.19862 1.44334 1.43339 1.11751 1.75962C0.791688 2.08586 0.557436 2.49208 0.438281 2.9375C-8.9407e-08 4.57812 0 8 0 8C0 8 -8.9407e-08 11.4219 0.438281 13.0602C0.679687 13.9648 1.39219 14.6773 2.29453 14.9188C3.93281 15.3594 10.5 15.3594 10.5 15.3594C10.5 15.3594 17.0672 15.3594 18.7055 14.9188C19.6102 14.6773 20.3203 13.9648 20.5617 13.0602C21 11.4219 21 8 21 8C21 8 21 4.57813 20.5617 2.93984ZM8.41406 11.1406V4.85938L13.8516 7.97656L8.41406 11.1406Z"/>
+                        </svg>
+                                                       
+                    </a>
+                </li>
 
+                <li>
+                    <a class="social-icn" target="_blank" href="https://twitter.com/FintapOfficial"> <!--target="_blank" відкриває вкладку в новому вікні-->
+                        <svg width="21" height="18" viewBox="0 0 21 18" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 2.13513C20.2277 2.49594 19.3981 2.73973 18.526 2.84992C19.4259 2.28218 20.0991 1.38861 20.4201 0.33596C19.5746 0.865461 18.6493 1.23817 17.6844 1.43789C17.0355 0.707364 16.176 0.22316 15.2393 0.0604525C14.3027 -0.102255 13.3413 0.0656378 12.5044 0.538065C11.6675 1.01049 11.002 1.76102 10.6111 2.67313C10.2203 3.58523 10.1259 4.60789 10.3428 5.58232C8.62963 5.49162 6.95372 5.02214 5.4238 4.20432C3.89389 3.38651 2.54416 2.23865 1.46221 0.835242C1.09227 1.5081 0.879547 2.28823 0.879547 3.11906C0.879135 3.86701 1.05382 4.60349 1.38811 5.26318C1.7224 5.92286 2.20595 6.48535 2.79587 6.90073C2.11172 6.87778 1.44267 6.68287 0.844402 6.33221V6.39072C0.844333 7.43974 1.18848 8.45648 1.81846 9.26841C2.44843 10.0803 3.32542 10.6375 4.30063 10.8453C3.66597 11.0264 3.00058 11.053 2.35471 10.9233C2.62985 11.8259 3.16581 12.6152 3.88755 13.1807C4.60929 13.7462 5.48068 14.0595 6.37972 14.0769C4.85354 15.3402 2.96871 16.0254 1.02845 16.0224C0.684753 16.0225 0.341346 16.0013 0 15.959C1.96948 17.2941 4.2621 18.0027 6.60354 18C14.5296 18 18.8626 11.0783 18.8626 5.07523C18.8626 4.8802 18.858 4.68322 18.8497 4.48819C19.6925 3.84553 20.42 3.04973 20.9982 2.13805L21 2.13513Z"/>
+                            </svg>                             
+                    </a>
+                </li>
+
+                <li>
+                    <a class="social-icn" target="_blank" href="https://www.facebook.com/p/Fintap-100070088112786/?paipv=0&eav=AfY1-afx79dcgLJYKpJEvsVTOm1TBAM84BxM6oDvoeSj2TA5zuHiTFh_sJJZO8L719w&_rdr"> <!--target="_blank" відкриває вкладку в новому вікні-->
+                        <svg width="11" height="20" viewBox="0 0 11 20" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.07088 20V11.1123H10.2137L11 7.40459H7.07088V5.93243C7.07088 4.44934 7.85674 3.70775 9.42852 3.70775H11V0H7.85711C4.96952 0 3.14282 2.1374 3.14282 5.19083V7.40459H0V11.1123H3.14282V20H7.07088Z"/>
+                            </svg>     
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="social-icn" target="_blank" href="https://www.instagram.com/explore/tags/fintap/"> <!--target="_blank" відкриває вкладку в новому вікні-->
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 0C12.717 0 13.056 0.00999994 14.122 0.0599999C15.187 0.11 15.912 0.277 16.55 0.525C17.21 0.779 17.766 1.123 18.322 1.678C18.8305 2.1779 19.224 2.78259 19.475 3.45C19.722 4.087 19.89 4.813 19.94 5.878C19.987 6.944 20 7.283 20 10C20 12.717 19.99 13.056 19.94 14.122C19.89 15.187 19.722 15.912 19.475 16.55C19.2247 17.2178 18.8311 17.8226 18.322 18.322C17.822 18.8303 17.2173 19.2238 16.55 19.475C15.913 19.722 15.187 19.89 14.122 19.94C13.056 19.987 12.717 20 10 20C7.283 20 6.944 19.99 5.878 19.94C4.813 19.89 4.088 19.722 3.45 19.475C2.78233 19.2245 2.17753 18.8309 1.678 18.322C1.16941 17.8222 0.775931 17.2175 0.525 16.55C0.277 15.913 0.11 15.187 0.0599999 14.122C0.0129999 13.056 0 12.717 0 10C0 7.283 0.00999994 6.944 0.0599999 5.878C0.11 4.812 0.277 4.088 0.525 3.45C0.775236 2.78218 1.1688 2.17732 1.678 1.678C2.17767 1.16923 2.78243 0.775729 3.45 0.525C4.088 0.277 4.812 0.11 5.878 0.0599999C6.944 0.0129999 7.283 0 10 0ZM10 5C8.67392 5 7.40215 5.52678 6.46447 6.46447C5.52678 7.40215 5 8.67392 5 10C5 11.3261 5.52678 12.5979 6.46447 13.5355C7.40215 14.4732 8.67392 15 10 15C11.3261 15 12.5979 14.4732 13.5355 13.5355C14.4732 12.5979 15 11.3261 15 10C15 8.67392 14.4732 7.40215 13.5355 6.46447C12.5979 5.52678 11.3261 5 10 5ZM16.5 4.75C16.5 4.41848 16.3683 4.10054 16.1339 3.86612C15.8995 3.6317 15.5815 3.5 15.25 3.5C14.9185 3.5 14.6005 3.6317 14.3661 3.86612C14.1317 4.10054 14 4.41848 14 4.75C14 5.08152 14.1317 5.39946 14.3661 5.63388C14.6005 5.8683 14.9185 6 15.25 6C15.5815 6 15.8995 5.8683 16.1339 5.63388C16.3683 5.39946 16.5 5.08152 16.5 4.75ZM10 7C10.7956 7 11.5587 7.31607 12.1213 7.87868C12.6839 8.44129 13 9.20435 13 10C13 10.7956 12.6839 11.5587 12.1213 12.1213C11.5587 12.6839 10.7956 13 10 13C9.20435 13 8.44129 12.6839 7.87868 12.1213C7.31607 11.5587 7 10.7956 7 10C7 9.20435 7.31607 8.44129 7.87868 7.87868C8.44129 7.31607 9.20435 7 10 7Z"/>
+                            </svg>                            
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    
+    <script src="script.js"></script>   
 </body>
 </html>

@@ -1,0 +1,153 @@
+
+.dowload {
+    @include flex (center, center);
+    background: $bg-color3;
+    position: relative;
+    height: 100vh;
+    max-height: 1000px;
+    width: 100%;
+    & .left {
+        position: relative;
+        height: 100%;
+        width: 50%;
+        overflow: hidden; //обрізає дочірні елементи
+        background: $bg-color3;
+    
+        & .circle-1 {
+            display: flex;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            translate: 50% 50%;
+            height: 80%;
+            width: 80%;
+            border-radius: 50%;
+            background: linear-gradient(96.74deg, #FF267E 0%, #38358C 100%);
+            opacity: 0.19;
+            filter: blur(150px);
+            transform: translate3d(0, 0, 0);//для того щоб в сафарі працював filter: blur(150px);
+    
+        } 
+    
+        & .circle-2 {
+            opacity: .5;
+            display: flex;
+            position: absolute;
+            translate: 50% -80%;
+            height: 30%;
+            width: 50%;
+            border-radius: 50%;
+            background: rgba(125, 185, 255, 0.6);
+            filter: blur(150px);
+            transform: translate3d(0, 0, 0);//для того щоб в сафарі працював filter: blur(150px);
+    
+        } 
+    }
+    & .right {
+        @include flex (center, center);
+        position: relative;
+        width: 50%;
+        height: 100%;
+
+        & .circle-3 {
+            display: flex;
+            position: absolute;
+            margin: 0 auto;
+            height: 80%;
+            width: 80%;
+            border-radius: 50%;
+            background: #38358C;
+            opacity: 0.3;
+            filter: blur(150px);
+            transform: translate3d(0, 0, 0);//для того щоб в сафарі працював filter: blur(150px);
+        }
+    
+    }
+}
+
+.dowload .right .discription {
+    @include flex (center, start);
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+    & h1 {
+        padding: 0;
+        color: $bg-color1;
+    }
+    & p {
+        max-width: 720px;
+        opacity: .6;
+        font-weight: 300;
+        color: $bg-color2;
+    }
+    & .advantages-list {
+        @include flex (start, start);
+        flex-direction: column;
+        gap: 16px;
+        & li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            & svg {
+                opacity: .6;
+            }
+        }  
+    }
+}
+
+.iphone-5 {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    height: 80%;
+}
+
+.dowload .left .print-2 {
+    left: 0;
+}
+
+@media (max-width: 1024px) {
+        .iphone-5 {
+        right: 0;
+        height: 70%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .dowload {
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        gap: 32px;
+        
+        // height: 3000px;
+    }
+    .dowload .right {
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .dowload .right .discription {
+        margin-top: 40px;
+        width: 100%;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .dowload .print-2,.dowload .circle-1,.dowload .circle-2,.dowload .new-bg,.dowload .left-bg {
+        display: none;
+    } 
+    .dowload .left {
+        overflow: visible;
+        width: 100%;
+    }
+    .iphone-5 {
+        left: 35%;
+        height: 100%;
+    }
+    .dowload .left .circle-1 {
+        display: none;
+    }
+
+}

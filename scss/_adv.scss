@@ -1,19 +1,20 @@
 .adv {
     @include flex (center, center);
     flex-direction: column;
-    margin-top: 12vh;
-    margin-bottom: 12vh;
+    // padding: 12vh 0;
+    margin: 12vh 24px;
     gap: 12vh;
 }
 
 .adv-box {
     @include flex (space-between, center);
-    gap: 104px;
-
-  & .adv-item {
+    gap: 12px;
+    & .adv-item {
     @include flex (start, center);
+    position: relative;
     flex-direction: column;
-    width: 350px;
+    width: 30%;
+
     & h4 {
         text-align: center;
 
@@ -25,10 +26,11 @@
     }
     }  
 }
+
+
 .ceo {
     @include flex (center, center);
     flex-direction: column;
-    margin-top: 64px;
     position: relative;
     & .user{
         @include flex (center, center);
@@ -36,27 +38,11 @@
         gap: 16px;
         & p {
             font-size: 16px;
-            transform: translateY(-24px);
+            transform: translateY(-16px);
             color: $txt-color2;
         }
     }
-    & .user__text {
-        @include flex (center, center);
-        flex-direction: column;
-        z-index: 1;
-        gap: 16px;
-        max-width: 800px;
-        font-size: 16px;
-        background: rgba(255, 255, 255, 0.76);
-        box-shadow: -10px 17px 35px rgba(34, 33, 88, 0.11);
-        backdrop-filter: blur(7px);
-        border-radius: 32px;
-        padding: 32px;
-        & p{
-            font-size: 16px;
-            color: $txt-color2;
-        }
-    }
+   
     & .decor-1 {
         position: absolute;
         left: -10%;
@@ -64,12 +50,72 @@
     }
     & .decor-2 {
         position: absolute;
-        right: -5%;
+        right: 5%;
         bottom: -10%;
     }
 }
 
+.user__text {
+    @include flex (center, center);
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    gap: 16px;
+    max-width: 800px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.76);
+    box-shadow: -10px 17px 35px rgba(34, 33, 88, 0.11);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter:blur(7px);// щоб працював backdrop-filter для сафарі при цьому треба залишити наступрийн рядок для хром 
+
+    border-radius: 32px;
+    padding: 32px;
+    & p{
+        font-size: 16px;
+        color: $txt-color2;
+    }
+}
+
+@media (max-width: 768px) {
+    .adv {
+        margin: 40px 16px;
+        gap: 40px;
+    }
+
+    .adv-box {
+        flex-direction: column;
+        gap: 24px;
+        & .adv-item {
+            width: 100%;
+            max-width: 300px;
+            gap: 8px;
+            & p {
+                margin: 0;
+            }
+        }
+    }
+    .adv-icon {
+        width: 104px;
+    }
 
 
 
- 
+    .user__text {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 510px){
+    .adv-box .adv-item p, .ceo .user p, .user__text p {
+           font-size: 14px;
+    }
+    .user__text p {
+        margin: 0;
+    }
+
+    .user__text {
+        padding: 16px;
+    }
+    
+}

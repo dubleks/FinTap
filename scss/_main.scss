@@ -1,107 +1,166 @@
 .main {
     z-index: 2;
-    @include flex (start, center);
+    @include flex (flex-start, center);
     background: $bg-color3;
     position: relative;
     height: 100vh;
+    width: 100vw;
 }
 
 nav {
     @include flex (space-between, center);
-    width: 100%;
+    width: 100vw;
     padding: 16px 24px;
     position: fixed;
     top: 0;
-    z-index: 2;
-
-    & .menu {
-        @include flex (end, center);
-        gap: 24px;
-
-        & ul{
-            @include flex (center, center);
-            gap: 24px;
-            & a {
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 21px;
-                color: $bg-color1;
-            }
-        } 
-    }
-
-
-
-    & .social-conteiner {
-        @include flex (space-between, center);
-        gap: 8px;
-        & a {
-            @include flex (center, center);
-            height: 42px;
-            width: 48px;
-            background: #FFFFFF;
-            box-shadow: 0px 10px 10px rgba(30, 35, 57, 0.04);
-            border-radius: 18px;
-        }
-    }
-
-
+    z-index: 3; 
 }
 
-.main .discription-conteiner {
+.social-conteiner {
+    @include flex (space-between, center);
+    gap: 8px;
+    & .btn-body{
+        @include flex (center, center);
+        background: linear-gradient(94.47deg, #FF267E -27.22%, #5954DD 100%);
+        border-radius: 16px;
+        padding: 1.5px;
+        height: 40px;
+        width: 48px;
+    }
+    & a {
+        @include flex (center, center);
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background: $bg-color3;
+        border-radius: 14px;
+        transition: all .3s ease-in-out;
+        &:hover {
+            background: none;
+        }
+    }
+    
+}
+
+.logo {
+    z-index: 4;
+    @include flex (start, center);
+    align-items: center;
+}
+
+.navbar-scroll {
+    background: $bg-color3;
+    padding: 8px 24px;
+}
+
+.menu {
+    @include flex (end, center);
+    z-index: 4;
+    gap: 24px;
+    & ul{
+        @include flex (center, center);
+        gap: 24px;
+        & a {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 21px;
+            color: $bg-color1;
+            transition: all .3s ease-in-out;
+            &:hover {
+                color: #D03499;
+            }
+        }
+    } 
+}
+
+.menu__body {
+    display: none;
+}
+
+.btn-s {
+    @include flex(end, center);
+    width: 44px;
+    height: 44px;
+    background: none;
+    display: none;
+    z-index: 4;
+    & .cross {
+        display: none;
+    }
+   
+}
+
+
+
+
+.discription-conteiner {
     z-index: 2;
     @include flex (center, center);
     position: absolute;
     height: 100%;
     width: 50%;
-    & .discription {
-        @include flex (center, start);
-        flex-direction: column;
-        position: absolute;
-        z-index: 2;
-        position: absolute;
-        gap: 32px;
-        padding: 64px;
-        & h1 {
-            padding: 0;
-            color: $bg-color1;
-        }
-        & p {
-            max-width: 720px;
-            opacity: .6;
-            font-weight: 300;
-            color: $bg-color2;
-        }
+}
+
+
+.discription {
+    @include flex (center, start);
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    gap: 32px;
+    padding: 24px;
+    & h1 {
+        padding: 0;
+        color: $bg-color1;
     }
+    & p {
+        max-width: 720px;
+        opacity: .6;
+        font-weight: 300;
+        color: $bg-color2;
+    }
+}
+
+.btn-conteiner {
+    @include flex (start, center);
+    // flex-wrap: nowrap;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.btn-conteiner a {
+    @include flex (center, center);
+    position: relative;
+    width: 220px;
+}
+
+.store-btn {
+    @include flex (center, center);
+    background: #4c464d;
+    width: 220px;
+    position: relative;
+
+    & .store-img {
+        position: absolute;
+        z-index: 1;
+    }
+
+    &:hover {
+        background:linear-gradient(94.41deg, #FF267E 2.76%, #5954DD 104.59%);;
+        opacity: 1;
+        }
 }
 
 .main .left {
     z-index: 1;
     height: 100%;
     width: 50%;
+    position: relative;
     background-image: url(../img/noize_200.png);
+    -webkit-backdrop-filter:blur(30.5px);// щоб працював backdrop-filter для сафарі при цьому треба залишити наступрийн рядок для хром 
     backdrop-filter: blur(30.5px);
     overflow: hidden; //обрізає дочірні елементи
-
-
-    & .print-1 {
-        position: absolute;
-        opacity: .5;
-        z-index: 2;
-        bottom: -25px;
-        translate: (25%);
-    }
-
-    & .print-2 {
-        transform: rotate(180deg);
-        position: absolute;
-        opacity: .5;
-        z-index: 2;
-        right: 0;
-        top: -25px;
-        translate: (-50%)
-    }
-
     & .circle-1 {
         display: flex;
         position: absolute;
@@ -114,6 +173,7 @@ nav {
         background: linear-gradient(96.74deg, #FF267E 0%, #38358C 100%);
         opacity: 0.19;
         filter: blur(150px);
+        transform: translate3d(0, 0, 0);//для того щоб в сафарі працював filter: blur(150px);
     } 
 
     & .circle-2 {
@@ -133,12 +193,8 @@ nav {
     @include flex (center, center);
     width: 50%;
     height: 100%;
-    & .iphones {
-        height: 80%;
-        max-height: 700px;
-        position: relative;
-        z-index: 1;
-    }
+    position: relative;
+    overflow: hidden;
 
     & .circle-3 {
         display: flex;
@@ -149,8 +205,15 @@ nav {
         background: #38358C;
         opacity: 0.77;
         filter: blur(150px);
+        transform: translate3d(0, 0, 0);
     }
 
+}
+
+.iphones {
+    height: 60%;
+    position: relative;
+    z-index: 1;
 }
 
 .circle-blured {
@@ -164,6 +227,199 @@ nav {
     background: linear-gradient(96.74deg, #FF267E 0%, #38358C 100%);
 }
 
+.print-2 {
+    transform: rotate(180deg);
+    position: absolute;
+    opacity: .5;
+    z-index: 2;
+    right: 0;
+    top: -25px;
+    translate: (-50%)
+}
+
+.print-1 {
+    position: absolute;
+    opacity: .5;
+    z-index: 2;
+    bottom: -25px;
+    translate: (25%);
+}
+
+@media (max-width: 1024px) {
+    .iphones {
+        height: 50%;
+        }
+    .btn-s {
+        order: 3;
+        display: flex;
+        z-index: 5;
+    }
+
+    .btn-s._active {
+        & .cross {
+            display: block;
+        }
+        & .burger {
+            display: none;
+        }
+    }
+
+    .menu__body {
+        display: block;
+        z-index: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+    }
+    .menu__body._active {
+        display: block;
+        z-index: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #161545;
+        opacity: .98;
+        background-image: url(../img/noize_200.png);
+        -webkit-backdrop-filter:blur(30.5px);// щоб працював backdrop-filter для сафарі при цьому треба залишити наступрийн рядок для хром 
+        backdrop-filter: blur(30.5px);
+        overflow: hidden; //обрізає дочірні елементи
+        & .circle-1 {
+            display: flex;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            translate: 50% 50%;
+            height: 80%;
+            width: 80%;
+            border-radius: 50%;
+            background: linear-gradient(96.74deg, #FF267E 0%, #38358C 100%);
+            opacity: 0.3;
+            filter: blur(150px);
+            transform: translate3d(0, 0, 0);//для того щоб в сафарі працював filter: blur(150px);
+        } 
+
+        & .circle-2 {
+            opacity: .8;
+            display: flex;
+            position: absolute;
+            translate: 50% -80%;
+            height: 30%;
+            width: 50%;
+            border-radius: 50%;
+            background: rgba(125, 185, 255, 0.6);
+            filter: blur(150px);
+        } 
+
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu._active {
+        display: flex;
+        position: fixed;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        & ul {
+            flex-direction: column;
+        }
+        & a {
+            background: none;
+        }
+        .btn-body {
+            background: none;
+        }
+
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+    p{
+        font-size: 16px;
+        line-height: inherit;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;  
+    }
+    .main .right {
+        @include flex (start, center);
+        width: 100%;
+        & .iphones {
+            top: 80px;
+        }
+        
+    }
+    .main .left {
+        display: none;
+    }
+    .discription-conteiner  {
+        width: 100%;
+        & .discription {
+            @include flex (center, center);
+            bottom: 0;
+            gap: 8px;
+            padding: 16px;
+        }
+    }
+    .circle-blured {
+        display: none;
+    }
+    h1 {
+        width: 100%;
+        font-size: 24px;
+    }
+    nav {
+        padding: 16px 16px;
+    }
+    .navbar-scroll {
+        padding: 4px 16px;
+        align-items: center;
+        & .logo img {
+            width: 80%;
+        }
+    }
+    .store-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 510px){
+    .main .right .iphones {
+        height: 40%;
+        top: 70px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    * p {
+        font-size: 14px;
+    }
+    .btn-conteiner {
+        flex-wrap: wrap;
+    }
+    .btn-conteiner a {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+}
 
 
 

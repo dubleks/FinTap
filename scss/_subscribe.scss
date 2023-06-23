@@ -1,0 +1,140 @@
+.subscribe {
+    @include flex (space-between, center);
+    flex-wrap: nowrap;
+    height: 80vh;
+    gap: 8%;
+    padding: 0 24px;
+}
+
+.form-conteiner {
+    @include flex (center, center);
+    position: relative;
+    width: 50%;
+}
+
+.blured-1 {
+    position: absolute;
+    left: 0;
+    top: 45%;
+}
+.blured-2 {
+    position: absolute;
+    right: 0;
+    top: 2%;
+}
+
+.sub-form {
+    @include flex (center, center);
+    z-index: 1;
+    padding: 24px;
+    width: 428px;
+    gap: 16px;
+    background: rgba(251, 249, 255, 0.76);
+    box-shadow: -10px 17px 35px rgba(34, 33, 88, 0.11);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter:blur(7px);// щоб працював backdrop-filter для сафарі при цьому треба залишити наступрийн рядок для хром 
+    border-radius: 32px;
+    & h4 {
+        text-align: center;
+    }
+    & button {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 724px) {
+    .subscribe {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 24px;
+        width: 100%;
+        height: 90vh;
+        overflow: hidden;
+    }
+    .form-conteiner {
+        width: 100%;
+    }
+    .subscribe {
+        padding: 40px 16px;
+    }
+    .sub-form {
+        padding: 16px;
+    }
+    .blured-1 {
+        left: -20%;
+    }
+    .blured-2 {
+        right: -20%;
+        top: -10%;
+    }
+}
+
+//інпути
+.input-labled {
+    box-sizing: border-box;
+    @include flex (start, start);
+    width: 100%;
+}
+
+input {
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    width: 100%;
+    color: $txt-color1;
+    font-size: 16px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    gap: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 7px rgba(61, 61, 115, 0.06);
+    border-radius: 20px;
+    border: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+input::placeholder {
+    width: fit-content;
+    font-size: 16px;
+    color: #B7B7CD;
+}
+
+input:hover::placeholder {
+    background: linear-gradient(94.47deg, #FF267E -27.22%, #5954DD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: .5;
+}
+
+input:focus::placeholder {
+    visibility: hidden;
+}
+
+input:hover {
+    box-shadow: 0px 6px 8px rgba(100, 82, 215, 0.18);
+} 
+
+input:focus {
+    outline: #DBDBEA solid 1px;//задає обводку зовні
+    background: $bg-color2;
+}
+
+input:active {
+    background: $bg-color1;
+}
+
+label {
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    color: $txt-color1;
+    padding-left: 16px;
+    padding-bottom: 4px;
+}
+

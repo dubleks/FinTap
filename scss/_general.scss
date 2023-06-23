@@ -36,45 +36,62 @@ $mc: 0 auto; // вирівнює посередині мерджін авто
 *::after {
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body{
-    margin: 0;
+    @include flex(center, center);
+    flex-direction: column;
+    width: 100vw;
+    margin: 0 auto;
     padding: 0;
     background: $bg-color2;
     font-family: $pop; // main font
     color: $txt-color1;
     overflow-x: hidden;// обрізає по осі х
-    
-    & p {
-        font-size: $f20r;
-        line-height: 32px;
-        font-weight: 400;
-    }
+    scroll-behavior: smooth;
 
-    & h1 {
-        font-size: 56px;
-    }
-    
-    & h2 {
-        font-size: 48px;
-    }
-
-    & h3 {
-        font-size: 36px;
-    }
-
-    & h4 {
-        font-size: 24px;
-    }
-    & h5 {
-        font-size: 20px;
-        font-weight: 600;
-        color: $bg-color3;
-    }
 
 }
 
-button {
+body._lock{
+    overflow: hidden;
+}
+
+p {
+    font-size: $f20r;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 36px;
+}
+
+h4 {
+    font-size: 24px;
+}
+h5 {
+    font-size: 20px;
+    font-weight: 600;
+    color: $bg-color3;
+}
+
+.conteiner {
+    max-width: 1200px;
+}
+
+
+.main-btn, .store-btn {
     height: 56px;
     width: 220px;
     border-radius: 36px;
@@ -85,34 +102,15 @@ button {
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 14px;
-    letter-spacing: .1em;        
+    letter-spacing: .1em;      
     background: linear-gradient(94.47deg, #FF267E -27.22%, #5954DD 100%);
+    transition: all .4s ease-in-out;
+    cursor: pointer;
 }
 
-.btn-conteiner {
-    @include flex (center, center);
-    gap: 16px;
-    7
-    & .store-btn {
-        @include flex (center, center);
-        position: relative;
-        background: none;
-        backdrop-filter: blur(30.5px);
-    
-        & .store-img {
-            position: absolute;
-            z-index: 1;
-        }
-    
-        & .btn-body {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background: #FFFFFF;
-        opacity: 0.17;;
-        border-radius: 100px;
-        }
-    }
+.main-btn:hover, .store-btn:hover  {
+    background: linear-gradient(94.41deg, #FF267E 2.76%, #5954DD 104.59%);
+    box-shadow: 0px 6px 8px rgba(100, 82, 215, 0.25);
 }
 
- 
+

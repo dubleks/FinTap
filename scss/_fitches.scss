@@ -1,17 +1,24 @@
 .fitches {
+    @include flex (flex-start, start);
+    flex-direction: column;
     position: relative;
+    width: 100vw;
+    padding: 0 24px;
 }
 
 .fitches__item {
-    height: 100vh;
+    height: 90vh;
     max-height: 800px;
-    @include flex (center, center);
-    flex-wrap: nowrap;
-    gap: 12vh;
+    width: 100%;
+    position: relative;
+    @include flex (space-between, center);
+    // gap: 8%;
 }
 
 
 .description {
+    position: relative;
+    width: 50%;
     max-width: 800px;
     @include flex (center, start);
     flex-direction: column;
@@ -20,73 +27,175 @@
     & p {
         color: $txt-color2;
     }
-    & .paragraph {
+
+    & .paragraph-box {
+        @include flex (start, start);
+        flex-direction: column;
         gap: 8px;
+        & .paragraph {
+            @include flex (start, start);
+        }
     }
 }
 
-.media-1 {
+.media {
     @include flex (center, center);
-    position: relative;
-    height: 80%;
-    width: 30%;
+    height: 100%;
+    width: 40%;
     max-height: 700px;
+    position: relative;
+
+    // фітчя 1
     & .circle-1 {
         width: 70%;
         position: absolute;
     }
-    & .circle-2 {
-        width: 40%;
-        top: 3%;
-        left: 17%;
-        position: absolute;
-    }
-    & .circle-3 {
-        width: 50%;
-        top: 50;
-        right: 17%;
-        position: absolute;
-    }
     & .iphone-2 {
-        height: 95%;
-        max-height: 700px;
-        position: relative;
-        top: 0;
+        position: absolute;
+        width: 100%;
         z-index: 1;
     }
-    & .iphone-3 {
-        height: 105%;
-        max-height: 700px;
-        position: relative;
-        top: 0;
-        z-index: 1;
-    }
-    & .iphone-4 {
-        height: 100%;
-        max-height: 700px;
-        position: relative;
-        top: 0;
-        z-index: 1;
-    }
+
     & .ellipse-2 {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 10%;
+        right: 10%;
         z-index: 1;
     }
+
+    // Фітчя 2
+    & .circle-2 {
+        position: absolute;
+        width: 60%;
+        left: 0;
+        top: 20%;
+    }
+
+    & .iphone-3 {
+        position: absolute;
+        z-index: 1;
+        width: 65%;
+    }
+
+    // Фітчя 3
+    & .iphone-4 {
+        position: absolute;
+        width: 50%;
+        z-index: 1;
+    }
+
     & .ellipse-3 {
         position: absolute;
-        top: 0%;
-        left: 12%;
+        left: 10%;
+        top: 30%;
+        height: 56px;
+    }
+
+    & .circle-3 {
+        height: 40%;
+        position: absolute;
+        right: 10%;
     }
 }
 
-.white-bg {
-    background-color: #ffffff;
-    height: 20vh;
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
-    z-index: -1;
+@media (max-width: 768px) {
+    h4 {
+        font-size: 18px;
+    }
+    .fitches {
+        gap: 40px;
+        margin: 40px 0;
+        padding: 0 16px;
+    }
+    .fitches__item {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 16px;
+        height: unset;
+        width: 100%;
+    }
+    .media {
+        width: 100%;
+        height: 50vh;
+
+        & .iphone-2 {
+            width: 100%;
+            max-width: 570px;
+            bottom: 0;
+        }
+        & .iphone-3 {
+            height: 100%;
+            width: auto;
+        }
+        & .iphone-4 {
+            height: 100%;
+            width: auto;
+        }
+
+        & .circle-1 {
+            height: 50%;
+            left: unset;
+            transform: translate(10%);
+            top: 0;
+            position: absolute;
+        }
+    
+        & .ellipse-2 {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            z-index: 1;
+        }
+        & .circle-2 {
+            height: 50%;
+            left: unset;
+            transform: translate(-20%);
+            top: 20%;
+        }
+
+        & .circle-3 {
+            height: 50%;
+            left: unset;
+            transform: translate(-20%);
+            top: 20%;
+        }
+        & .ellipse-3 {
+            left: 20%;
+            top: 10%;
+            height: 56px;
+        }
+        
+
+    }
+
+    .fitches :first-child {
+        & .description {
+            order: 2;
+        }
+        & .media {
+            order: 1;
+        }
+    }
+
+    .fitches :last-child {
+        & .description {
+            order: 2;
+        }
+        & .media {
+            order: 1;
+        }
+    }
+
+    .description {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 510px){
+   .description button {
+    width: 100%;
+   } 
 
 }
