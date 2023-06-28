@@ -4,18 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--дозволяє робити свайт адаптивним-->
-
     <title>FinTap</title>  <!-- назва сторінки у вкладці -->
     <link rel="stylesheet" href="css/style.min.css">  <!-- підключення стилів цсс  -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">    <!-- Підключення бібліотек gsap, атрібут defer дає можлтвість завантажувати скрипти після завантаження контенту  -->
-    
-    <script src="libs/gsap/gsap.min.js" defer ></script>
-    <script src="libs/gsap/ScrollTrigger.min.js" defer ></script>
-    <script src="libs/gsap/ScrollSmoother.min.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script>
         jQuery(function($){
@@ -28,6 +23,7 @@
             });
             });
     </script>
+     
 </head>
 <body>
     <section class="main">
@@ -63,10 +59,10 @@
             
             <div class="menu">
                 <ul>
-                    <a href="#adv">Advantages</a>
-                    <a href="#fitches">Fitches</a>
-                    <a href="#dowload">Download</a>
-                    <a href="#subscribe">Subscribe</a>
+                    <a class="menu__link" data-goto=".adv" href="#">Advantages</a>
+                    <a class="menu__link" data-goto=".fitches" href="#">Fitches</a>
+                    <a class="menu__link" data-goto=".dowload" href="#">Download</a>
+                    <a class="menu__link" data-goto=".subscribe" href="#">Subscribe</a>
                 </ul>
                 <div class="social-conteiner">
                     <div class="btn-body">
@@ -103,13 +99,11 @@
                     <a target="_blank" href="https://apps.apple.com/ru/app/id1367425342">
                         <button class="store-btn" href="https://twitter.com/FintapOfficial">
                             <img class="store-img" src="img/apple.svg" alt="">
-                            <div class="btn-body"></div>
                         </button> 
                     </a>
                     <a target="_blank" href="https://play.google.com/store/apps/details?id=com.exscudo.channels&hl=ru">
                         <button class="store-btn">
-                        <img class="store-img" src="img/google.svg" alt="">
-                        <div class="btn-body"></div>
+                            <img class="store-img" src="img/google.svg" alt="">
                     </button> 
                     </a>
                 </div>
@@ -135,7 +129,7 @@
         </div>
         <div class="circle-blured"></div>
     </section>
-    <section id="adv" class="adv conteiner">
+    <section class="adv conteiner">
         <div class="adv-box">
             <div class="adv-item">
                 <img class="adv-icon" src="img/bullets/fiat support.svg" alt="">
@@ -190,7 +184,7 @@
             <div></div>
         </div>
     </section>
-    <section id="fitches" class="fitches  conteiner">
+    <section class="fitches  conteiner">
         <div class="fitches__item">
             <div class="description">
                 <h1>
@@ -348,7 +342,7 @@
             </div>
         </div>
     </section>
-    <section id="dowload" class="dowload">
+    <section class="dowload">
         <div class="left">
             <img class="iphone-5" src="img/iphones/iphone-5.png" alt="iphone-5">
             <svg class="print-2" width="379" height="284" viewBox="0 0 379 284" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -423,7 +417,7 @@
             </div>
         </div>
     </section>
-    <section id="subscribe" class="subscribe">
+    <section class="subscribe">
         <div class="description">
             <h1>
                 Dive into digital assets with FinTap 
@@ -553,8 +547,6 @@
             </ul>
         </div>
     </footer>
-
-    
-    <script src="script.js"></script>   
+    <script src="/script.js"></script> 
 </body>
 </html>

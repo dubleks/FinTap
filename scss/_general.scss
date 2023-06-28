@@ -13,12 +13,6 @@ $f20r: 20px;
 $f16r: 16px; // змінна для найчастіше вживаного тексту
 $accent-grad2: linear-gradient(132.97deg, #2AF599 3.44%, #05A6F4 95.12%);
 
-// Діректива рут, для визначення елементів. Створення змінної для визначення пропорцій
-:root {
-    --index: calc(1vw+1vh)
-}
-
-
 $wrap: calc (1920-2*64)px; // ширина всього блоку
 $mc: 0 auto; // вирівнює посередині мерджін авто
 
@@ -90,27 +84,76 @@ h5 {
     max-width: 1200px;
 }
 
+.btn-conteiner {
+    @include flex (start, center);
+    // flex-wrap: nowrap;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+}
 
-.main-btn, .store-btn {
+.btn-conteiner a {
+    @include flex (center, center);
+    position: relative;
+    width: 220px;
+}
+
+.main-btn {
+    @include flex (center, center);
     height: 56px;
     width: 220px;
     border-radius: 36px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     color: $bg-color1;
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 14px;
     letter-spacing: .1em;      
     background: linear-gradient(94.47deg, #FF267E -27.22%, #5954DD 100%);
-    transition: all .4s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
 }
 
-.main-btn:hover, .store-btn:hover  {
-    background: linear-gradient(94.41deg, #FF267E 2.76%, #5954DD 104.59%);
+.main-btn:hover {
+    filter: hue-rotate(50deg);
     box-shadow: 0px 6px 8px rgba(100, 82, 215, 0.25);
 }
+
+.store-btn {
+    position: relative;
+    @include flex (center, center);
+    height: 56px;
+    width: 220px;
+    border-radius: 36px;
+    background: #4c464d;
+    width: 220px;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 36px;
+        position: absolute;
+        opacity: 0;
+        background:linear-gradient(94.41deg, #FF267E 2.76%, #5954DD 104.59%);
+        transition: all .3s ease-in-out;
+    }
+
+    &:hover::before{
+        filter: hue-rotate(50deg);
+        opacity: 1;
+    }
+
+    & .store-img {
+        position: absolute;
+        z-index: 1;
+        
+    }
+}
+
+
 
 
